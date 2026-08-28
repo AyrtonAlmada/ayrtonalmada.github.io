@@ -508,13 +508,7 @@
 
           <p class="text-sm text-gray-600 leading-relaxed">
 
-            This project develops a computational framework for analyzing the
-            dynamic response of power transmission networks under N-1 contingency
-            scenarios, with a focus on transient stability and line overheating
-            risk. The framework combines analytical solutions, stochastic
-            differential equations, Monte Carlo simulation, and importance sampling
-            to identify vulnerable network components and estimate probabilistic
-            system risk under randomized fault scenarios.
+            This project develops a computational framework for analyzing the dynamic response of power transmission networks under N-1 contingency scenarios, with a focus on transient stability and line overheating risk. The system models the grid as a weighted graph and uses the linearized swing equation to capture the evolution of generator phase angles and frequency deviations following transmission line faults. The implementation combines closed-form analytical solutions with stochastic simulations to evaluate system behavior across fault, faulted, and post-fault regimes. Analytical methods enable efficient time-domain evaluation of linearized dynamics, while stochastic simulations—via Euler–Maruyama integration—incorporate variability from load fluctuations and renewable generation. A key component of the framework is the modeling of fault events through time-dependent network topology changes, allowing detailed analysis of disturbance propagation. The project also introduces overheating indicators based on phase differences to quantify thermal stress on transmission lines, providing insight into potential cascading failures. Monte Carlo simulations are used to generate distributions of system responses under randomized fault scenarios, enabling identification of vulnerable network components and probabilistic risk assessment. The framework supports large-scale experimentation and offers a systematic approach to studying resilience and stability in modern power grids.
 
           </p>
 
@@ -542,11 +536,7 @@
 
           <p class="text-sm text-gray-600 leading-relaxed">
 
-            This project implements the System-Agnostic Localization of Oscillations
-            algorithm for identifying the origin and frequency of forced oscillations
-            in complex dynamical networks. The approach combines spectral analysis,
-            Fourier methods, maximum likelihood estimation, and optimization to
-            infer forcing characteristics from observable time-series data.
+            This project implements the System-Agnostic Localization of Oscillations (SALO) algorithm to identify the origin and frequency of forced oscillations in complex dynamical networks. Using time series data of phase angles and frequencies from interconnected agents, the method formulates and solves an optimization problem to infer the most likely source and characteristics of external forcing. The approach combines spectral analysis (via Fourier transforms) with maximum likelihood estimation to reconstruct the underlying system dynamics, including interaction structure, damping parameters, and forcing amplitudes. Both standard and relaxed formulations of the SALO algorithm are implemented, along with parallelized versions to enable efficient analysis of large-scale systems. The framework is designed to be system-agnostic, requiring only observable time series data, making it broadly applicable to networked systems such as power grids, coupled oscillators, and other high-dimensional dynamical systems. By enabling accurate localization of oscillatory disturbances, this work supports improved monitoring, diagnostics, and stability analysis in complex infrastructures.
 
           </p>
 
@@ -678,7 +668,14 @@
             <div>
 
               <h3 class="font-semibold">
-                2027 Grid Science Winter School and Conference
+                <a
+                  href="https://web.cvent.com/event/d6dcb6c5-dee0-4a22-b782-873001f3fed4/summary"
+                  class="text-blue-600 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  2027 Grid Science Winter School and Conference
+                </a>
               </h3>
 
               <p class="text-sm text-gray-600">
@@ -687,19 +684,10 @@
 
             </div>
 
-            <span class="text-sm text-gray-500 mt-2 sm:mt-0">
-              January 11–15, 2027
-            </span>
-
           </div>
 
-          <p class="text-sm text-gray-600 mt-3">
-
-            Upcoming participant in the seventh biennial Grid Science Winter School
-            and Conference, focused on artificial intelligence, optimization,
-            control, resilience, distribution modeling, and interdependent energy
-            systems.
-
+          <p class="text-sm text-gray-500 mt-2">
+            January 2027
           </p>
 
         </div>
@@ -708,7 +696,14 @@
         <div class="bg-white shadow-md rounded-lg p-5">
 
           <h3 class="font-semibold">
-            2026 PowerUp Conference
+            <a
+              href="https://power-up.us/"
+              class="text-blue-600 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              2026 PowerUp Conference
+            </a>
           </h3>
 
           <p class="text-sm text-gray-600">
@@ -725,7 +720,14 @@
         <div class="bg-white shadow-md rounded-lg p-5">
 
           <h3 class="font-semibold">
-            Pipeline Simulation Interest Group Annual Meeting
+            <a
+              href="https://psig.org/conference/registration-information/"
+              class="text-blue-600 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Pipeline Simulation Interest Group Annual Meeting
+            </a>
           </h3>
 
           <p class="text-sm text-gray-600">
@@ -742,7 +744,14 @@
         <div class="bg-white shadow-md rounded-lg p-5">
 
           <h3 class="font-semibold">
-            Champery Power Conference
+            <a
+              href="https://champery.control.ee.ethz.ch/home"
+              class="text-blue-600 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Champery Power Conference
+            </a>
           </h3>
 
           <p class="text-sm text-gray-600">
@@ -759,7 +768,14 @@
         <div class="bg-white shadow-md rounded-lg p-5">
 
           <h3 class="font-semibold">
-            Grid Science Winter School and Conference
+            <a
+              href="https://cnls.lanl.gov/external/conferences/Conferences_2025.html"
+              class="text-blue-600 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Grid Science Winter School and Conference
+            </a>
           </h3>
 
           <p class="text-sm text-gray-600">
@@ -789,7 +805,14 @@
         <div class="bg-white shadow-md rounded-lg p-5">
 
           <h3 class="font-semibold">
-            Dynamical Systems for Machine Learning and AI Summer Graduate School
+            <a
+              href="https://www.slmath.org/summer-schools/1142"
+              class="text-blue-600 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Dynamical Systems for Machine Learning and AI Summer Graduate School
+            </a>
           </h3>
 
           <p class="text-sm text-gray-600">
@@ -812,7 +835,14 @@
         <div class="bg-white shadow-md rounded-lg p-5">
 
           <h3 class="font-semibold">
-            Analysis of Partial Differential Equations Summer Graduate School
+            <a
+              href="https://www.oist.jp/conference/1st-oist-oxford-slmath-summer-graduate-school-analysis-and-partial-differential-equations"
+              class="text-blue-600 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Analysis of Partial Differential Equations Summer Graduate School
+            </a>
           </h3>
 
           <p class="text-sm text-gray-600">
@@ -834,7 +864,6 @@
       </div>
 
     </section>
-
 
     <!-- Education -->
     <section id="education" class="mb-12">
