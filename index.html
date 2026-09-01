@@ -3,1008 +3,1288 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Ayrton Almada – Academic Profile</title>
 
   <link
     href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
     rel="stylesheet"
-  >
+  />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #f3f4f6;
+    }
+
+    .section-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition:
+        max-height 0.6s ease,
+        opacity 0.35s ease,
+        padding 0.4s ease;
+    }
+
+    .section-content.open {
+      max-height: 10000px;
+      opacity: 1;
+    }
+
+    .section-toggle {
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .section-toggle:hover {
+      background-color: #f9fafb;
+    }
+
+    .section-icon {
+      transition: transform 0.35s ease;
+    }
+
+    .section-icon.rotate {
+      transform: rotate(180deg);
+    }
+
+    .nav-button {
+      transition: all 0.2s ease;
+    }
+
+    .nav-button:hover {
+      color: #2563eb;
+    }
+
+    .card-hover {
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body class="bg-gray-100 text-gray-800 font-sans">
 
-  <!-- Header -->
-  <header class="bg-white shadow-md py-6">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between">
+  <!-- HEADER -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-5">
 
-      <div class="flex items-center space-x-4 mb-4 md:mb-0">
-        <img
-          src="pic.jpg"
-          alt="Profile"
-          class="w-16 h-16 rounded-full border"
-        />
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
 
-        <div>
-          <h1 class="text-xl font-bold">
-            Ayrton Pablo Almada Jimenez
-          </h1>
+        <!-- Profile -->
+        <div class="flex items-center space-x-4 mb-4 md:mb-0">
+          <img
+            src="pic.jpg"
+            alt="Ayrton Almada"
+            class="w-16 h-16 rounded-full border shadow-sm object-cover"
+          />
 
-          <p class="text-sm text-gray-600">
-            <strong>
-              Ph.D. Candidate in Applied Mathematics | Researcher in Complex Systems and Energy Networks
-            </strong>
-          </p>
+          <div>
+            <h1 class="text-xl font-bold">
+              Ayrton Pablo Almada Jimenez
+            </h1>
+
+            <p class="text-sm text-gray-600">
+              <strong>
+                Ph.D. Candidate in Applied Mathematics | Complex Systems & Energy Networks
+              </strong>
+            </p>
+          </div>
         </div>
+
+        <!-- Navigation -->
+        <nav class="desktop-nav flex flex-wrap justify-end gap-x-4 gap-y-2 text-sm">
+
+          <button onclick="openSection('about')" class="nav-button font-semibold">
+            About
+          </button>
+
+          <button onclick="openSection('interests')" class="nav-button font-semibold">
+            Interests
+          </button>
+
+          <button onclick="openSection('experience')" class="nav-button font-semibold">
+            Experience
+          </button>
+
+          <button onclick="openSection('publications')" class="nav-button font-semibold">
+            Publications
+          </button>
+
+          <button onclick="openSection('projects')" class="nav-button font-semibold">
+            Projects
+          </button>
+
+          <button onclick="openSection('awards')" class="nav-button font-semibold">
+            Awards
+          </button>
+
+          <button onclick="openSection('conferences')" class="nav-button font-semibold">
+            Conferences
+          </button>
+
+          <button onclick="openSection('schools')" class="nav-button font-semibold">
+            Schools
+          </button>
+
+          <button onclick="openSection('education')" class="nav-button font-semibold">
+            Education
+          </button>
+
+          <button onclick="openSection('contact')" class="nav-button font-semibold">
+            Contact
+          </button>
+
+        </nav>
       </div>
-
-      <nav class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
-        <a href="#about" class="hover:underline"><strong>About</strong></a>
-        <a href="#research" class="hover:underline"><strong>Research</strong></a>
-        <a href="#publications" class="hover:underline"><strong>Publications</strong></a>
-        <a href="#projects" class="hover:underline"><strong>Projects</strong></a>
-        <a href="#awards" class="hover:underline"><strong>Awards</strong></a>
-        <a href="#conferences" class="hover:underline"><strong>Conferences</strong></a>
-        <a href="#schools" class="hover:underline"><strong>Summer Schools</strong></a>
-        <a href="#contact" class="hover:underline"><strong>Contact</strong></a>
-      </nav>
-
     </div>
   </header>
 
 
-  <main class="max-w-4xl mx-auto px-4 py-10">
-
-    <!-- About Section -->
-    <section id="about" class="mb-12">
-
-      <h2 class="text-2xl font-bold mb-3">
-        About Me
-      </h2>
-
-      <p class="text-gray-700 leading-relaxed">
-        I am a Ph.D. candidate in Applied Mathematics at The University of Arizona,
-        supervised by Dr.
-        <b>
-          <a
-            href="https://appliedmath.arizona.edu/person/michael-chertkov"
-            class="text-blue-600 hover:underline"
-          >
-            Michael Chertkov
-          </a>
-        </b>
-        and Dr.
-        <b>
-          <a
-            href="https://www.math.arizona.edu/people/laurentpagnier"
-            class="text-blue-600 hover:underline"
-          >
-            Laurent Pagnier
-          </a>
-        </b>.
-        My research focuses on mathematical modeling, uncertainty quantification,
-        probabilistic risk assessment, stochastic simulation, and computational
-        methods for complex dynamical and networked systems, with a particular
-        emphasis on electric power systems and interdependent energy networks.
-      </p>
-
-      <p class="text-gray-700 leading-relaxed mt-4">
-        I develop mathematical and computational methods for studying the behavior,
-        stability, and resilience of large-scale systems under uncertainty. My work
-        combines probability, stochastic processes, dynamical systems, optimization,
-        rare-event simulation, statistical inference, and high-performance
-        scientific computing. I am particularly interested in translating theoretical
-        ideas into scalable computational frameworks that can be used to analyze
-        realistic, data-intensive systems.
-      </p>
-
-      <p class="text-gray-700 leading-relaxed mt-4">
-        My research has included collaborations with Los Alamos National Laboratory,
-        the University of Arizona, and the Israel Electric Corporation through work
-        involving NOGA, the Israeli Independent System Operator. These experiences
-        have allowed me to work across academic, national laboratory, and
-        industry-oriented research environments.
-      </p>
-
-      <p class="text-gray-700 leading-relaxed mt-4">
-        Alongside my work in energy systems, I am increasingly interested in machine
-        learning, artificial intelligence, data-driven modeling, and optimization.
-        In particular, I am interested in understanding how modern statistical and
-        machine learning methods can be combined with mathematical modeling and
-        scientific computing to address challenging problems in complex physical
-        systems.
-      </p>
-
-    </section>
+  <!-- MAIN CONTENT -->
+  <main class="max-w-5xl mx-auto px-4 py-10 space-y-5">
 
 
-    <!-- Research Interests -->
-    <section id="research" class="mb-12">
+    <!-- ABOUT ME -->
+    <section id="about" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <h2 class="text-2xl font-bold mb-4">
-        Research Interests
-      </h2>
+      <button
+        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+        onclick="toggleSection('about')"
+      >
+        <h2 class="text-2xl font-bold">
+          About Me
+        </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <svg
+          id="icon-about"
+          class="section-icon rotate w-6 h-6 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
 
-        <div class="bg-white shadow-md rounded-lg p-4">
-          <h3 class="font-semibold mb-2">
-            Complex Systems & Dynamical Networks
-          </h3>
+      <div id="content-about" class="section-content open">
+        <div class="px-6 pb-6 text-gray-700 leading-relaxed">
 
-          <p class="text-sm text-gray-600">
-            Mathematical modeling and analysis of large-scale dynamical systems,
-            networked systems, stability, resilience, and the propagation of
-            disturbances across interconnected infrastructures.
+          <p>
+            I am a Ph.D. candidate in Applied Mathematics at the University of
+            Arizona, advised by Dr.
+            <a
+              href="https://appliedmath.arizona.edu/person/michael-chertkov"
+              class="text-blue-600 hover:underline font-semibold"
+              target="_blank"
+            >
+              Michael Chertkov
+            </a>
+            and Dr.
+            <a
+              href="https://www.math.arizona.edu/people/laurentpagnier"
+              class="text-blue-600 hover:underline font-semibold"
+              target="_blank"
+            >
+              Laurent Pagnier
+            </a>.
+            My research focuses on mathematical modeling, probabilistic
+            analysis, and computational methods for complex dynamical and
+            networked systems, particularly modern energy infrastructures.
           </p>
-        </div>
 
-        <div class="bg-white shadow-md rounded-lg p-4">
-          <h3 class="font-semibold mb-2">
-            Stochastic Modeling & Uncertainty Quantification
-          </h3>
+          <br />
 
-          <p class="text-sm text-gray-600">
-            Stochastic differential equations, probabilistic modeling, uncertainty
-            propagation, Monte Carlo simulation, rare-event analysis, and
-            importance sampling.
+          <p>
+            My work combines probability, stochastic processes, dynamical
+            systems, optimization, statistical inference, rare-event analysis,
+            and large-scale scientific computing. I develop mathematical models
+            and computational frameworks for assessing uncertainty, stability,
+            resilience, and risk in complex systems, with particular emphasis
+            on transmission-level power networks and coupled energy
+            infrastructures.
           </p>
-        </div>
 
-        <div class="bg-white shadow-md rounded-lg p-4">
-          <h3 class="font-semibold mb-2">
-            Power & Energy Systems
-          </h3>
+          <br />
 
-          <p class="text-sm text-gray-600">
-            Dynamic security assessment, N-1 contingencies, transient stability,
-            cascading failures, interdependent energy systems, and probabilistic
-            risk analysis.
+          <p>
+            I have conducted collaborative research at
+            <strong>Los Alamos National Laboratory</strong> and worked across
+            academic, national laboratory, and international energy-system
+            environments. My experience includes developing Python- and
+            Julia-based research software, Monte Carlo and importance-sampling
+            algorithms, stochastic simulations, surrogate models, and scalable
+            computational workflows.
           </p>
-        </div>
 
-        <div class="bg-white shadow-md rounded-lg p-4">
-          <h3 class="font-semibold mb-2">
-            Machine Learning & AI
-          </h3>
+          <br />
 
-          <p class="text-sm text-gray-600">
-            Machine learning, data-driven modeling, scientific machine learning,
-            generative methods, natural language processing, large language models,
-            and AI for scientific and engineering applications.
+          <p>
+            I am broadly interested in the intersection of applied mathematics,
+            machine learning, artificial intelligence, optimization, and
+            complex systems. I am particularly interested in developing
+            data-driven and computational approaches that connect rigorous
+            mathematical modeling with practical decision-making in large-scale
+            engineered systems.
           </p>
+
         </div>
-
-        <div class="bg-white shadow-md rounded-lg p-4">
-          <h3 class="font-semibold mb-2">
-            Optimization & Statistical Inference
-          </h3>
-
-          <p class="text-sm text-gray-600">
-            Optimization, statistical learning, parameter estimation, sensitivity
-            analysis, surrogate modeling, and computational approaches to
-            high-dimensional inference problems.
-          </p>
-        </div>
-
-        <div class="bg-white shadow-md rounded-lg p-4">
-          <h3 class="font-semibold mb-2">
-            Scientific Computing
-          </h3>
-
-          <p class="text-sm text-gray-600">
-            Numerical methods, high-performance computing, parallel algorithms,
-            simulation-based research, and scalable Python and Julia software for
-            scientific applications.
-          </p>
-        </div>
-
       </div>
 
     </section>
 
 
-    <!-- Research Experience -->
-    <section id="experience" class="mb-12">
+    <!-- RESEARCH INTERESTS -->
+    <section id="interests" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <h2 class="text-2xl font-bold mb-4">
-        Research Experience
-      </h2>
+      <button
+        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+        onclick="toggleSection('interests')"
+      >
+        <h2 class="text-2xl font-bold">
+          Research Interests
+        </h2>
 
-      <div class="space-y-6">
+        <svg
+          id="icon-interests"
+          class="section-icon w-6 h-6 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
 
-        <div class="bg-white shadow-md rounded-lg p-5">
+      <div id="content-interests" class="section-content">
 
-          <div class="flex flex-col sm:flex-row sm:justify-between">
+        <div class="px-6 pb-6">
 
-            <div>
-              <h3 class="font-semibold">
-                Ph.D. Researcher in Applied Mathematics
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-semibold text-lg mb-2">
+                Applied Mathematics & Complex Systems
               </h3>
-
-              <p class="text-sm text-gray-600">
-                University of Arizona
+              <p class="text-gray-600 text-sm">
+                Dynamical systems, stochastic processes, differential
+                equations, network science, spectral methods, and mathematical
+                modeling of complex systems.
               </p>
             </div>
 
-            <p class="text-sm text-gray-500 mt-2 sm:mt-0">
-              August 2022 – Present
-            </p>
-
-          </div>
-
-          <ul class="list-disc ml-5 mt-3 text-sm text-gray-600 space-y-1">
-
-            <li>
-              Develop mathematical and statistical models for complex dynamical
-              systems under uncertainty.
-            </li>
-
-            <li>
-              Develop Monte Carlo and importance-sampling methods for estimating
-              rare-event probabilities and system risk.
-            </li>
-
-            <li>
-              Design surrogate and reduced-order models to accelerate computationally
-              intensive analyses.
-            </li>
-
-            <li>
-              Develop scalable algorithms in Python and Julia for simulation,
-              statistical analysis, and model evaluation.
-            </li>
-
-            <li>
-              Conduct research from mathematical formulation through computational
-              implementation, experimentation, validation, and interpretation.
-            </li>
-
-          </ul>
-
-        </div>
-
-
-        <div class="bg-white shadow-md rounded-lg p-5">
-
-          <div class="flex flex-col sm:flex-row sm:justify-between">
-
-            <div>
-              <h3 class="font-semibold">
-                Computer Science Graduate Intern
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-semibold text-lg mb-2">
+                Energy Systems
               </h3>
-
-              <p class="text-sm text-gray-600">
-                Los Alamos National Laboratory
+              <p class="text-gray-600 text-sm">
+                Power-grid dynamics, transient stability, resilience,
+                interdependent energy networks, contingency analysis, and
+                probabilistic risk assessment.
               </p>
             </div>
 
-            <p class="text-sm text-gray-500 mt-2 sm:mt-0">
-              June 2023 – August 2023<br/>
-              January 2025 – August 2025
-            </p>
-
-          </div>
-
-          <ul class="list-disc ml-5 mt-3 text-sm text-gray-600 space-y-1">
-
-            <li>
-              Developed computational frameworks for probabilistic assessment of
-              complex systems using large-scale stochastic simulations.
-            </li>
-
-            <li>
-              Developed N1Plus, a computational framework for probabilistic dynamic
-              assessment of transmission-level power systems.
-            </li>
-
-            <li>
-              Applied Monte Carlo simulation and importance sampling to estimate
-              probabilities of rare and high-impact events.
-            </li>
-
-            <li>
-              Developed Python- and Julia-based research software for simulation,
-              analysis, and visualization.
-            </li>
-
-            <li>
-              Collaborated with interdisciplinary researchers on mathematical
-              modeling, algorithm development, and computational analysis.
-            </li>
-
-          </ul>
-
-        </div>
-
-
-        <div class="bg-white shadow-md rounded-lg p-5">
-
-          <div class="flex flex-col sm:flex-row sm:justify-between">
-
-            <div>
-              <h3 class="font-semibold">
-                Research Assistant, Energy Systems
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-semibold text-lg mb-2">
+                Probability & Uncertainty Quantification
               </h3>
-
-              <p class="text-sm text-gray-600">
-                University of Arizona
+              <p class="text-gray-600 text-sm">
+                Rare-event simulation, Monte Carlo methods, importance
+                sampling, stochastic differential equations, and statistical
+                inference.
               </p>
             </div>
 
-            <p class="text-sm text-gray-500 mt-2 sm:mt-0">
-              January 2024 – July 2024
-            </p>
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-semibold text-lg mb-2">
+                Artificial Intelligence & Machine Learning
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Machine learning, data-driven modeling, scientific machine
+                learning, natural language processing, generative models, and
+                AI for scientific discovery.
+              </p>
+            </div>
+
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-semibold text-lg mb-2">
+                Optimization & Control
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Optimization, control theory, operator-theoretic methods, and
+                computational decision-making for large-scale systems.
+              </p>
+            </div>
+
+            <div class="p-4 bg-gray-50 rounded-lg border">
+              <h3 class="font-semibold text-lg mb-2">
+                Scientific Computing
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Numerical methods, high-performance computing, parallel
+                algorithms, simulation-based modeling, and reproducible
+                computational research.
+              </p>
+            </div>
 
           </div>
 
-          <ul class="list-disc ml-5 mt-3 text-sm text-gray-600 space-y-1">
-
-            <li>
-              Developed numerical solvers and stochastic models for analyzing
-              complex networked systems under uncertainty.
-            </li>
-
-            <li>
-              Developed quantitative measures of system stress and damage under
-              stochastic disturbances.
-            </li>
-
-            <li>
-              Applied importance sampling, Cross-Entropy methods, and
-              Kullback-Leibler-based approaches to rare-event analysis.
-            </li>
-
-            <li>
-              Conducted sensitivity and uncertainty analyses to evaluate model
-              robustness under different scenarios.
-            </li>
-
-          </ul>
-
         </div>
-
       </div>
 
     </section>
 
 
-    <!-- Publications -->
-    <section id="publications" class="mb-12">
+    <!-- RESEARCH EXPERIENCE -->
+    <section id="experience" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <h2 class="text-2xl font-bold mb-4">
-        Publications
-      </h2>
+      <button
+        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+        onclick="toggleSection('experience')"
+      >
+        <h2 class="text-2xl font-bold">
+          Research Experience
+        </h2>
 
-      <ul class="space-y-5">
+        <svg
+          id="icon-experience"
+          class="section-icon w-6 h-6 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
 
-        <li>
+      <div id="content-experience" class="section-content">
 
-          <strong>
-            Análisis espectral de procesos de difusión cambiantes
-          </strong>
+        <div class="px-6 pb-6 space-y-8">
 
-          <br/>
+          <div class="border-l-4 border-blue-500 pl-5">
 
-          <em>
-            Universidad Nacional Autónoma de México, Facultad de Ciencias, 2022
-          </em>
+            <div class="flex flex-col md:flex-row md:justify-between">
 
-          <br/>
+              <h3 class="font-semibold text-lg">
+                Computer Science Graduate Internship Program
+              </h3>
 
-          <b>
-            <a
-              href="https://ru.dgb.unam.mx/items/8bb6d6f3-7db8-4a97-8ef7-40411e6536e7"
-              class="text-blue-600 hover:underline"
-            >
-              [PDF]
-            </a>
-          </b>
+              <span class="text-sm text-gray-500">
+                June 2023 – August 2023<br />
+                January 2025 – August 2025
+              </span>
 
-        </li>
+            </div>
 
+            <p class="italic text-gray-600">
+              Los Alamos National Laboratory, New Mexico
+            </p>
 
-        <li>
+            <ul class="list-disc ml-5 mt-3 text-gray-700 space-y-1">
+              <li>
+                Developed computational frameworks for probabilistic assessment
+                of complex systems using large-scale stochastic simulations.
+              </li>
+              <li>
+                Developed N1Plus, a computational framework for probabilistic
+                dynamic assessment of transmission-level systems.
+              </li>
+              <li>
+                Applied Monte Carlo simulation and importance sampling to
+                estimate probabilities of rare and high-impact events.
+              </li>
+              <li>
+                Developed Python- and Julia-based software for simulation,
+                analysis, and visualization.
+              </li>
+              <li>
+                Collaborated with interdisciplinary researchers on mathematical
+                modeling, algorithm development, and computational analysis.
+              </li>
+            </ul>
 
-          <strong>
-            Real-Time Stochastic Assessment of Dynamic N-1 Grid Contingencies
-          </strong>
-
-          <br/>
-
-          <em>
-            Program in Applied Mathematics and Department of Mathematics,
-            University of Arizona, 2025
-          </em>
-
-          <br/>
-
-          <b>
-            <a
-              href="https://arxiv.org/pdf/2510.18007"
-              class="text-blue-600 hover:underline"
-            >
-              [PDF]
-            </a>
-          </b>
-
-        </li>
-
-
-        <li>
-
-          <strong>
-            Real-Time Dynamic N-1 Screening: Identifying High-Risk Lines and
-            Transformers After Common Faults
-          </strong>
-
-          <br/>
-
-          <em>
-            Program in Applied Mathematics and Department of Mathematics,
-            University of Arizona, 2026
-          </em>
-
-          <br/>
-
-          <b>
-            <a
-              href="https://arxiv.org/pdf/2602.12293"
-              class="text-blue-600 hover:underline"
-            >
-              [PDF]
-            </a>
-          </b>
-
-        </li>
+          </div>
 
 
-        <li>
+          <div class="border-l-4 border-blue-500 pl-5">
 
-          <strong>
-            Risk-Aware Co-Simulation of Integrated Power and Gas Transients:
-            Sampling Fuel-Switching Decisions During Supply Disruptions
-          </strong>
+            <div class="flex flex-col md:flex-row md:justify-between">
 
-          <br/>
+              <h3 class="font-semibold text-lg">
+                Case Studies in Applied Mathematics and Data Science/Machine Learning
+              </h3>
 
-          <em>
-            Pipeline Simulation Interest Group Annual Meeting, Amsterdam,
-            Netherlands, 2026
-          </em>
+              <span class="text-sm text-gray-500">
+                August 2023 – Present
+              </span>
 
-          <br/>
+            </div>
 
-          <b>
-            <a
-              href="https://onepetro.org/PSIGAM/proceedings-abstract/PSIG26/PSIG26/PSIG-2607/799790"
-              class="text-blue-600 hover:underline"
-            >
-              [Publication]
-            </a>
-          </b>
+            <p class="italic text-gray-600">
+              University of Arizona
+            </p>
 
-        </li>
+            <ul class="list-disc ml-5 mt-3 text-gray-700 space-y-1">
 
-      </ul>
+              <li>
+                Develop mathematical and statistical models for analyzing
+                complex dynamical systems under uncertainty.
+              </li>
+
+              <li>
+                Apply probability, stochastic processes, differential
+                equations, linear algebra, numerical methods, and optimization
+                to large-scale quantitative problems.
+              </li>
+
+              <li>
+                Develop Monte Carlo and importance-sampling methods for
+                estimating rare-event probabilities and quantifying system
+                risk.
+              </li>
+
+              <li>
+                Design simulation-based methodologies for evaluating model
+                behavior across stochastic scenarios.
+              </li>
+
+              <li>
+                Develop surrogate and reduced-order models to accelerate
+                computationally intensive analyses.
+              </li>
+
+              <li>
+                Implement scalable computational algorithms in Python and Julia
+                for simulation, statistical analysis, and model evaluation.
+              </li>
+
+            </ul>
+
+          </div>
+
+
+          <div class="border-l-4 border-blue-500 pl-5">
+
+            <div class="flex flex-col md:flex-row md:justify-between">
+
+              <h3 class="font-semibold text-lg">
+                Research Assistant – Energy Systems
+              </h3>
+
+              <span class="text-sm text-gray-500">
+                January 2024 – July 2024
+              </span>
+
+            </div>
+
+            <p class="italic text-gray-600">
+              University of Arizona
+            </p>
+
+            <ul class="list-disc ml-5 mt-3 text-gray-700 space-y-1">
+
+              <li>
+                Developed numerical solvers and stochastic models for analyzing
+                complex networked systems under uncertainty.
+              </li>
+
+              <li>
+                Developed quantitative measures of system stress and damage.
+              </li>
+
+              <li>
+                Performed stochastic and ergodic analysis using Importance
+                Sampling, the Cross-Entropy Method, and
+                Kullback-Leibler-based sampling techniques.
+              </li>
+
+              <li>
+                Conducted sensitivity and uncertainty analyses to evaluate
+                robustness under different scenarios.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+      </div>
 
     </section>
 
 
-    <!-- Projects -->
-    <section id="projects" class="mb-12">
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <h2 class="text-2xl font-bold mb-4">
-        Research Projects
-      </h2>
+      <button
+        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+        onclick="toggleSection('publications')"
+      >
+        <h2 class="text-2xl font-bold">
+          Publications
+        </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <svg
+          id="icon-publications"
+          class="section-icon w-6 h-6 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
 
-        <div class="p-5 bg-white shadow-md rounded-lg">
+      <div id="content-publications" class="section-content">
 
-          <h3 class="font-semibold mb-2">
-            Real-Time Stochastic Assessment of Dynamic N-1 Grid Contingencies
-          </h3>
+        <div class="px-6 pb-6">
 
-          <p class="text-sm text-gray-600 leading-relaxed">
+          <ul class="space-y-6">
 
-            This project develops a computational framework for analyzing the dynamic response of power transmission networks under N-1 contingency scenarios, with a focus on transient stability and line overheating risk. The system models the grid as a weighted graph and uses the linearized swing equation to capture the evolution of generator phase angles and frequency deviations following transmission line faults. The implementation combines closed-form analytical solutions with stochastic simulations to evaluate system behavior across fault, faulted, and post-fault regimes. Analytical methods enable efficient time-domain evaluation of linearized dynamics, while stochastic simulations—via Euler–Maruyama integration—incorporate variability from load fluctuations and renewable generation. A key component of the framework is the modeling of fault events through time-dependent network topology changes, allowing detailed analysis of disturbance propagation. The project also introduces overheating indicators based on phase differences to quantify thermal stress on transmission lines, providing insight into potential cascading failures. Monte Carlo simulations are used to generate distributions of system responses under randomized fault scenarios, enabling identification of vulnerable network components and probabilistic risk assessment. The framework supports large-scale experimentation and offers a systematic approach to studying resilience and stability in modern power grids.
+            <li>
+              <strong>
+                Análisis espectral de procesos de difusión cambiantes
+              </strong>
+              <br />
 
-          </p>
+              <em>
+                Universidad Nacional Autónoma de México, Facultad de Ciencias,
+                2022
+              </em>
+              <br />
 
-          <p class="mt-3 text-sm">
-
-            <b>
               <a
-                href="https://github.com/AyrtonAlmada/PowerGridREserach"
-                class="text-blue-600 hover:underline"
+                href="https://ru.dgb.unam.mx/items/8bb6d6f3-7db8-4a97-8ef7-40411e6536e7"
+                target="_blank"
+                class="text-blue-600 hover:underline font-semibold"
               >
-                Project Repository
+                [PDF]
               </a>
-            </b>
-
-          </p>
-
-        </div>
+            </li>
 
 
-        <div class="p-5 bg-white shadow-md rounded-lg">
+            <li>
+              <strong>
+                Real-Time Stochastic Assessment of Dynamic N-1 Grid Contingencies
+              </strong>
+              <br />
 
-          <h3 class="font-semibold mb-2">
-            System-Agnostic Localization of Oscillations (SALO)
-          </h3>
+              <em>
+                Program in Applied Mathematics and Department of Mathematics,
+                University of Arizona, 2025
+              </em>
+              <br />
 
-          <p class="text-sm text-gray-600 leading-relaxed">
-
-            This project implements the System-Agnostic Localization of Oscillations (SALO) algorithm to identify the origin and frequency of forced oscillations in complex dynamical networks. Using time series data of phase angles and frequencies from interconnected agents, the method formulates and solves an optimization problem to infer the most likely source and characteristics of external forcing. The approach combines spectral analysis (via Fourier transforms) with maximum likelihood estimation to reconstruct the underlying system dynamics, including interaction structure, damping parameters, and forcing amplitudes. Both standard and relaxed formulations of the SALO algorithm are implemented, along with parallelized versions to enable efficient analysis of large-scale systems. The framework is designed to be system-agnostic, requiring only observable time series data, making it broadly applicable to networked systems such as power grids, coupled oscillators, and other high-dimensional dynamical systems. By enabling accurate localization of oscillatory disturbances, this work supports improved monitoring, diagnostics, and stability analysis in complex infrastructures.
-
-          </p>
-
-          <p class="mt-3 text-sm">
-
-            <b>
               <a
-                href="https://github.com/AyrtonAlmada/SALO"
-                class="text-blue-600 hover:underline"
+                href="https://arxiv.org/pdf/2510.18007"
+                target="_blank"
+                class="text-blue-600 hover:underline font-semibold"
               >
-                Project Repository
+                [PDF]
               </a>
-            </b>
+            </li>
 
-          </p>
+
+            <li>
+              <strong>
+                Real-Time Dynamic N-1 Screening: Identifying High-Risk Lines
+                and Transformers After Common Faults
+              </strong>
+              <br />
+
+              <em>
+                Program in Applied Mathematics and Department of Mathematics,
+                University of Arizona, 2026
+              </em>
+              <br />
+
+              <a
+                href="https://arxiv.org/pdf/2602.12293"
+                target="_blank"
+                class="text-blue-600 hover:underline font-semibold"
+              >
+                [PDF]
+              </a>
+            </li>
+
+
+            <li>
+              <strong>
+                Risk-Aware Co-Simulation of Integrated Power and Gas
+                Transients: Sampling Fuel-Switching Decisions During Supply
+                Disruptions
+              </strong>
+              <br />
+
+              <em>
+                Pipeline Simulation Interest Group Annual Meeting,
+                Amsterdam, Netherlands, 2026
+              </em>
+              <br />
+
+              <a
+                href="https://onepetro.org/PSIGAM/proceedings-abstract/PSIG26/PSIG26/PSIG-2607/799790"
+                target="_blank"
+                class="text-blue-600 hover:underline font-semibold"
+              >
+                [Publication]
+              </a>
+            </li>
+
+          </ul>
 
         </div>
-
       </div>
 
     </section>
 
 
-    <!-- Awards -->
-    <section id="awards" class="mb-12">
+    <!-- RESEARCH PROJECTS -->
+    <section id="projects" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <h2 class="text-2xl font-bold mb-4">
-        Awards & Scholarships
-      </h2>
+      <button
+        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+        onclick="toggleSection('projects')"
+      >
+        <h2 class="text-2xl font-bold">
+          Research Projects
+        </h2>
 
-      <div class="bg-white shadow-md rounded-lg p-5">
+        <svg
+          id="icon-projects"
+          class="section-icon w-6 h-6 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
 
-        <ul class="space-y-4 text-gray-700">
+      <div id="content-projects" class="section-content">
 
-          <li>
-
-            <strong>
-              University Fellows Award
-            </strong>
-
-            <br/>
-
-            <span class="text-sm text-gray-600">
-              University of Arizona, 2022–2023
-            </span>
-
-          </li>
-
-
-          <li>
-
-            <strong>
-              Carter Travel Award
-            </strong>
-
-            <br/>
-
-            <span class="text-sm text-gray-600">
-              University of Arizona, 2025
-            </span>
-
-          </li>
+        <div class="px-6 pb-6 grid grid-cols-1 md:grid-cols-2 gap-6">
 
 
-          <li>
+          <div class="p-5 bg-gray-50 rounded-lg border card-hover">
 
-            <strong>
-              Carter Travel Award
-            </strong>
+            <h3 class="font-semibold text-lg mb-3">
+              Real-Time Stochastic Assessment of Dynamic N-1 Grid Contingencies
+            </h3>
 
-            <br/>
+            <p class="text-sm text-gray-600 leading-relaxed">
 
-            <span class="text-sm text-gray-600">
-              University of Arizona, 2026
-            </span>
+              Development of a computational framework for analyzing the
+              dynamic response of transmission networks under N-1 contingency
+              scenarios. The project combines stochastic modeling, transient
+              stability analysis, Monte Carlo simulation, importance sampling,
+              and analytical methods to evaluate system behavior and identify
+              vulnerable network components.
 
-          </li>
+            </p>
 
+            <a
+              href="https://github.com/AyrtonAlmada/PowerGridREserach"
+              target="_blank"
+              class="inline-block mt-4 text-blue-600 hover:underline font-semibold text-sm"
+            >
+              Project Repository →
+            </a>
 
-          <li>
-
-            <strong>
-              Thesis/Dissertation Tuition Scholarship Award
-            </strong>
-
-            <br/>
-
-            <span class="text-sm text-gray-600">
-              University of Arizona, 2026
-            </span>
-
-          </li>
+          </div>
 
 
-          <li>
+          <div class="p-5 bg-gray-50 rounded-lg border card-hover">
 
-            <strong>
-              UNAM-Santander Study Abroad Scholarship
-            </strong>
+            <h3 class="font-semibold text-lg mb-3">
+              System-Agnostic Localization of Oscillations (SALO)
+            </h3>
 
-            <br/>
+            <p class="text-sm text-gray-600 leading-relaxed">
 
-            <span class="text-sm text-gray-600">
-              Universidad Nacional Autónoma de México, 2020–2021
-            </span>
+              Implementation of the SALO algorithm for identifying the origin
+              and frequency of forced oscillations in complex dynamical
+              networks. The framework combines spectral analysis, Fourier
+              transforms, maximum likelihood estimation, and optimization to
+              infer external forcing from observable time-series data.
 
-          </li>
+            </p>
 
-        </ul>
+            <a
+              href="https://github.com/AyrtonAlmada/SALO"
+              target="_blank"
+              class="inline-block mt-4 text-blue-600 hover:underline font-semibold text-sm"
+            >
+              Project Repository →
+            </a>
 
+          </div>
+
+
+          <div class="p-5 bg-gray-50 rounded-lg border card-hover">
+
+            <h3 class="font-semibold text-lg mb-3">
+              N1Plus: Probabilistic Dynamic Grid Assessment
+            </h3>
+
+            <p class="text-sm text-gray-600 leading-relaxed">
+
+              Development of computational methodologies for real-time
+              probabilistic assessment of transmission-level power systems
+              under faults and contingencies. The framework combines
+              importance sampling, rare-event analysis, stochastic simulation,
+              and dynamic stability indicators.
+
+            </p>
+
+          </div>
+
+
+          <div class="p-5 bg-gray-50 rounded-lg border card-hover">
+
+            <h3 class="font-semibold text-lg mb-3">
+              Integrated Power and Gas Network Co-Simulation
+            </h3>
+
+            <p class="text-sm text-gray-600 leading-relaxed">
+
+              Research on probabilistic modeling and co-simulation of coupled
+              electrical and natural-gas infrastructures, with emphasis on
+              supply disruptions, fuel-switching decisions, and cascading
+              effects across interdependent energy networks.
+
+            </p>
+
+          </div>
+
+        </div>
       </div>
 
     </section>
 
 
-    <!-- Conferences -->
-    <section id="conferences" class="mb-12">
+    <!-- AWARDS -->
+    <section id="awards" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <h2 class="text-2xl font-bold mb-4">
-        Conferences & Professional Meetings
-      </h2>
+      <button
+        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+        onclick="toggleSection('awards')"
+      >
+        <h2 class="text-2xl font-bold">
+          Awards & Scholarships
+        </h2>
 
-      <div class="space-y-5">
+        <svg
+          id="icon-awards"
+          class="section-icon w-6 h-6 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
 
-        <div class="bg-white shadow-md rounded-lg p-5">
+      <div id="content-awards" class="section-content">
 
-          <div class="flex flex-col sm:flex-row sm:justify-between">
+        <div class="px-6 pb-6">
 
-            <div>
+          <ul class="space-y-4">
 
-              <h3 class="font-semibold">
-                <a
-                  href="https://web.cvent.com/event/d6dcb6c5-dee0-4a22-b782-873001f3fed4/summary"
-                  class="text-blue-600 hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  2027 Grid Science Winter School and Conference
-                </a>
-              </h3>
-
+            <li class="border-l-4 border-blue-500 pl-4">
+              <a
+                href="https://grad.arizona.edu/funding/fellowships/university-fellows-award"
+                target="_blank"
+                class="font-semibold text-blue-600 hover:underline"
+              >
+                University Fellows Award
+              </a>
               <p class="text-sm text-gray-600">
-                Los Alamos National Laboratory – Santa Fe, New Mexico
+                University of Arizona, 2022–2023
               </p>
+            </li>
 
+
+            <li class="border-l-4 border-blue-500 pl-4">
+              <a
+                href="https://appliedmath.arizona.edu/"
+                target="_blank"
+                class="font-semibold text-blue-600 hover:underline"
+              >
+                Carter Travel Award
+              </a>
+              <p class="text-sm text-gray-600">
+                University of Arizona, 2025
+              </p>
+            </li>
+
+
+            <li class="border-l-4 border-blue-500 pl-4">
+              <a
+                href="https://appliedmath.arizona.edu/"
+                target="_blank"
+                class="font-semibold text-blue-600 hover:underline"
+              >
+                Carter Travel Award
+              </a>
+              <p class="text-sm text-gray-600">
+                University of Arizona, 2026
+              </p>
+            </li>
+
+
+            <li class="border-l-4 border-blue-500 pl-4">
+              <a
+                href="https://grad.arizona.edu/financial-resources/tuition-awards"
+                target="_blank"
+                class="font-semibold text-blue-600 hover:underline"
+              >
+                Thesis/Dissertation Tuition Scholarship Award
+              </a>
+              <p class="text-sm text-gray-600">
+                University of Arizona, 2026
+              </p>
+            </li>
+
+
+            <li class="border-l-4 border-blue-500 pl-4">
+              <a
+                href="https://www.gob.mx/sre"
+                target="_blank"
+                class="font-semibold text-blue-600 hover:underline"
+              >
+                UNAM–Santander Study Abroad Scholarship
+              </a>
+              <p class="text-sm text-gray-600">
+                Universidad Nacional Autónoma de México, 2020–2021
+              </p>
+            </li>
+
+          </ul>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- CONFERENCES -->
+    <section id="conferences" class="bg-white shadow-md rounded-lg overflow-hidden">
+
+      <button
+        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+        onclick="toggleSection('conferences')"
+      >
+        <h2 class="text-2xl font-bold">
+          Conferences & Professional Meetings
+        </h2>
+
+        <svg
+          id="icon-conferences"
+          class="section-icon w-6 h-6 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
+
+      <div id="content-conferences" class="section-content">
+
+        <div class="px-6 pb-6">
+
+          <div class="space-y-5">
+
+            <div class="border-l-4 border-gray-400 pl-4">
+              <a
+                href="https://www.lanl.gov/projects/lanl-grid-science/"
+                target="_blank"
+                class="font-semibold text-blue-600 hover:underline"
+              >
+                2025 Grid Science Winter School and Conference
+              </a>
+              <p class="text-sm text-gray-600">
+                Los Alamos National Laboratory, Santa Fe, New Mexico
+              </p>
+            </div>
+
+
+            <div class="border-l-4 border-gray-400 pl-4">
+              <a
+                href="https://www.psig.org/"
+                target="_blank"
+                class="font-semibold text-blue-600 hover:underline"
+              >
+                Pipeline Simulation Interest Group Annual Meeting
+              </a>
+              <p class="text-sm text-gray-600">
+                Amsterdam, Netherlands, 2026
+              </p>
+            </div>
+
+
+            <div class="border-l-4 border-gray-400 pl-4">
+              <a
+                href="https://www.nccr-automation.ch/"
+                target="_blank"
+                class="font-semibold text-blue-600 hover:underline"
+              >
+                Champéry Power Conference
+              </a>
+              <p class="text-sm text-gray-600">
+                Champéry, Switzerland, 2026
+              </p>
+            </div>
+
+
+            <div class="border-l-4 border-gray-400 pl-4">
+              <a
+                href="https://www.nrel.gov/"
+                target="_blank"
+                class="font-semibold text-blue-600 hover:underline"
+              >
+                PowerUp Conference
+              </a>
+              <p class="text-sm text-gray-600">
+                Boulder, Colorado, 2026
+              </p>
+            </div>
+
+
+            <div class="border-l-4 border-gray-400 pl-4">
+              <a
+                href="https://web.cvent.com/event/d6dcb6c5-dee0-4a22-b782-873001f3fed4/summary"
+                target="_blank"
+                class="font-semibold text-blue-600 hover:underline"
+              >
+                2027 Grid Science Winter School and Conference
+              </a>
+              <p class="text-sm text-gray-600">
+                Los Alamos National Laboratory, Santa Fe, New Mexico
+              </p>
             </div>
 
           </div>
 
-          <p class="text-sm text-gray-500 mt-2">
-            January 2027
-          </p>
-
         </div>
-
-
-        <div class="bg-white shadow-md rounded-lg p-5">
-
-          <h3 class="font-semibold">
-            <a
-              href="https://power-up.us/"
-              class="text-blue-600 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              2026 PowerUp Conference
-            </a>
-          </h3>
-
-          <p class="text-sm text-gray-600">
-            Boulder, Colorado, United States
-          </p>
-
-          <p class="text-sm text-gray-500 mt-2">
-            September 2026
-          </p>
-
-        </div>
-
-
-        <div class="bg-white shadow-md rounded-lg p-5">
-
-          <h3 class="font-semibold">
-            <a
-              href="https://psig.org/conference/registration-information/"
-              class="text-blue-600 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Pipeline Simulation Interest Group Annual Meeting
-            </a>
-          </h3>
-
-          <p class="text-sm text-gray-600">
-            Amsterdam, Netherlands
-          </p>
-
-          <p class="text-sm text-gray-500 mt-2">
-            2026
-          </p>
-
-        </div>
-
-
-        <div class="bg-white shadow-md rounded-lg p-5">
-
-          <h3 class="font-semibold">
-            <a
-              href="https://champery.control.ee.ethz.ch/home"
-              class="text-blue-600 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Champery Power Conference
-            </a>
-          </h3>
-
-          <p class="text-sm text-gray-600">
-            NCCR Automation – Champéry, Switzerland
-          </p>
-
-          <p class="text-sm text-gray-500 mt-2">
-            2026
-          </p>
-
-        </div>
-
-
-        <div class="bg-white shadow-md rounded-lg p-5">
-
-          <h3 class="font-semibold">
-            <a
-              href="https://cnls.lanl.gov/external/conferences/Conferences_2025.html"
-              class="text-blue-600 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Grid Science Winter School and Conference
-            </a>
-          </h3>
-
-          <p class="text-sm text-gray-600">
-            Los Alamos National Laboratory – Santa Fe, New Mexico
-          </p>
-
-          <p class="text-sm text-gray-500 mt-2">
-            2025
-          </p>
-
-        </div>
-
       </div>
 
     </section>
 
 
-    <!-- Summer Schools -->
-    <section id="schools" class="mb-12">
+    <!-- SUMMER SCHOOLS -->
+    <section id="schools" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <h2 class="text-2xl font-bold mb-4">
-        Summer & Graduate Schools
-      </h2>
+      <button
+        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+        onclick="toggleSection('schools')"
+      >
+        <h2 class="text-2xl font-bold">
+          Summer & Graduate Schools
+        </h2>
 
-      <div class="space-y-5">
+        <svg
+          id="icon-schools"
+          class="section-icon w-6 h-6 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
 
-        <div class="bg-white shadow-md rounded-lg p-5">
+      <div id="content-schools" class="section-content">
 
-          <h3 class="font-semibold">
+        <div class="px-6 pb-6 space-y-5">
+
+          <div class="border-l-4 border-green-500 pl-4">
             <a
-              href="https://www.slmath.org/summer-schools/1142"
-              class="text-blue-600 hover:underline"
+              href="https://groups.oist.jp/mathematical-and-theoretical-sciences"
               target="_blank"
-              rel="noopener noreferrer"
-            >
-              Dynamical Systems for Machine Learning and AI Summer Graduate School
-            </a>
-          </h3>
-
-          <p class="text-sm text-gray-600">
-            IBM Research – Yorktown Heights, New York
-          </p>
-
-          <p class="text-sm text-gray-500 mt-2">
-            2026
-          </p>
-
-          <p class="text-sm text-gray-600 mt-3">
-            Graduate-level program focused on dynamical systems, machine learning,
-            artificial intelligence, and mathematical approaches to modern
-            data-driven methods.
-          </p>
-
-        </div>
-
-
-        <div class="bg-white shadow-md rounded-lg p-5">
-
-          <h3 class="font-semibold">
-            <a
-              href="https://www.oist.jp/conference/1st-oist-oxford-slmath-summer-graduate-school-analysis-and-partial-differential-equations"
-              class="text-blue-600 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
+              class="font-semibold text-blue-600 hover:underline"
             >
               Analysis of Partial Differential Equations Summer Graduate School
             </a>
-          </h3>
 
-          <p class="text-sm text-gray-600">
-            Okinawa Institute of Science and Technology – Okinawa, Japan
-          </p>
-
-          <p class="text-sm text-gray-500 mt-2">
-            2024
-          </p>
-
-          <p class="text-sm text-gray-600 mt-3">
-            Advanced graduate training in partial differential equations,
-            mathematical analysis, and related theoretical and computational
-            methods.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- Education -->
-    <section id="education" class="mb-12">
-
-      <h2 class="text-2xl font-bold mb-4">
-        Education
-      </h2>
-
-      <div class="space-y-6">
-
-        <div class="bg-white shadow-md rounded-lg p-5">
-
-          <div class="flex flex-col sm:flex-row sm:justify-between">
-
-            <div>
-
-              <h3 class="font-semibold">
-                Ph.D. in Applied Mathematics
-              </h3>
-
-              <p class="text-sm text-gray-600">
-                University of Arizona, Tucson, Arizona
-              </p>
-
-            </div>
-
-            <span class="text-sm text-gray-500 mt-2 sm:mt-0">
-              August 2022 – May 2027
-            </span>
-
+            <p class="text-sm text-gray-600">
+              Okinawa Institute of Science and Technology, Japan, 2024
+            </p>
           </div>
 
-          <p class="text-sm text-gray-600 mt-3">
-            Research in stochastic modeling, dynamical systems, probabilistic risk
-            assessment, rare-event simulation, optimization, and computational
-            methods for complex energy systems.
-          </p>
 
-          <p class="text-sm text-gray-600 mt-2">
-            <strong>Expected Graduation:</strong> May 2027
-          </p>
+          <div class="border-l-4 border-green-500 pl-4">
+            <a
+              href="https://research.ibm.com/labs/yorktown-heights"
+              target="_blank"
+              class="font-semibold text-blue-600 hover:underline"
+            >
+              Dynamical Systems for Machine Learning and AI Summer Graduate School
+            </a>
 
-        </div>
-
-
-        <div class="bg-white shadow-md rounded-lg p-5">
-
-          <div class="flex flex-col sm:flex-row sm:justify-between">
-
-            <div>
-
-              <h3 class="font-semibold">
-                B.S. in Applied Mathematics
-              </h3>
-
-              <p class="text-sm text-gray-600">
-                Universidad Nacional Autónoma de México, Mexico City, Mexico
-              </p>
-
-            </div>
-
-            <span class="text-sm text-gray-500 mt-2 sm:mt-0">
-              August 2016 – January 2021
-            </span>
-
+            <p class="text-sm text-gray-600">
+              IBM Research, Yorktown Heights, New York, 2026
+            </p>
           </div>
 
-          <p class="text-sm text-gray-600 mt-3">
-
-            Thesis:
-            <em>
-              The Spectral Analysis of Switching Diffusion Processes and their
-              Applications
-            </em>.
-
-          </p>
-
         </div>
-
       </div>
 
     </section>
 
 
-    <!-- Contact -->
-    <section id="contact" class="mb-6">
+    <!-- EDUCATION -->
+    <section id="education" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <h2 class="text-2xl font-bold mb-4">
-        Contact
-      </h2>
+      <button
+        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+        onclick="toggleSection('education')"
+      >
+        <h2 class="text-2xl font-bold">
+          Education
+        </h2>
 
-      <div class="bg-white shadow-md rounded-lg p-5 space-y-2">
+        <svg
+          id="icon-education"
+          class="section-icon w-6 h-6 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
 
-        <p>
-          Email:
-          <b>
+      <div id="content-education" class="section-content">
+
+        <div class="px-6 pb-6 space-y-8">
+
+
+          <div>
+
+            <div class="flex flex-col md:flex-row md:justify-between">
+
+              <div>
+                <h3 class="font-semibold text-lg">
+                  Ph.D. in Applied Mathematics
+                </h3>
+
+                <p class="text-gray-600">
+                  Program in Applied Mathematics, University of Arizona
+                </p>
+              </div>
+
+              <span class="text-sm text-gray-500">
+                August 2022 – May 2027 (Expected)
+              </span>
+
+            </div>
+
+            <div class="mt-3 text-gray-700">
+
+              <p>
+                <strong>Relevant Coursework:</strong>
+                Methods for Applied Mathematics, Theoretical Foundations of
+                Applied Mathematics, Algorithms
+              </p>
+
+              <p class="mt-2">
+                Research focuses on stochastic modeling, dynamical systems,
+                uncertainty quantification, computational mathematics, and
+                complex energy networks.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="flex flex-col md:flex-row md:justify-between">
+
+              <div>
+                <h3 class="font-semibold text-lg">
+                  B.S. in Applied Mathematics
+                </h3>
+
+                <p class="text-gray-600">
+                  School of Sciences, Universidad Nacional Autónoma de México
+                </p>
+              </div>
+
+              <span class="text-sm text-gray-500">
+                August 2016 – January 2021
+              </span>
+
+            </div>
+
+            <div class="mt-3 text-gray-700">
+
+              <p>
+                <strong>Relevant Coursework:</strong>
+                Applied Mathematics Analysis, Statistics I–III, Stochastic
+                Processes I–II, Numerical Optimization, Multivariate Analysis,
+                Stochastic Simulation, and Partial Differential Equations.
+              </p>
+
+              <p class="mt-2">
+                <strong>Thesis:</strong>
+                <em>
+                  The Spectral Analysis of Switching Diffusion Processes and
+                  their Applications
+                </em>
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="bg-white shadow-md rounded-lg overflow-hidden">
+
+      <button
+        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+        onclick="toggleSection('contact')"
+      >
+        <h2 class="text-2xl font-bold">
+          Contact
+        </h2>
+
+        <svg
+          id="icon-contact"
+          class="section-icon w-6 h-6 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
+
+      <div id="content-contact" class="section-content">
+
+        <div class="px-6 pb-6 space-y-3">
+
+          <p>
+            <strong>Email:</strong>
             <a
               href="mailto:p.ayrtonalmada@gmail.com"
               class="text-blue-600 hover:underline"
             >
               p.ayrtonalmada@gmail.com
             </a>
-          </b>
-        </p>
+          </p>
 
-        <p>
-          LinkedIn:
-          <b>
+
+          <p>
+            <strong>LinkedIn:</strong>
             <a
               href="https://www.linkedin.com/in/ayrton-almada-309b1a125/"
+              target="_blank"
               class="text-blue-600 hover:underline"
             >
               Ayrton Almada
             </a>
-          </b>
-        </p>
+          </p>
 
-        <p>
-          GitHub:
-          <b>
+
+          <p>
+            <strong>GitHub:</strong>
             <a
               href="https://github.com/AyrtonAlmada"
+              target="_blank"
               class="text-blue-600 hover:underline"
             >
               AyrtonAlmada
             </a>
-          </b>
-        </p>
+          </p>
 
-        <p>
-          Resume:
-          <b>
+
+          <p>
+            <strong>Resume:</strong>
             <a
               href="https://docs.google.com/document/d/1gQSbh1MNrF_sEicRwQjHPcjKSw4a832E/edit"
+              target="_blank"
               class="text-blue-600 hover:underline"
             >
-              AyrtonAlmadaResume
+              Ayrton Almada Resume
             </a>
-          </b>
-        </p>
+          </p>
 
+        </div>
       </div>
 
     </section>
@@ -1012,12 +1292,121 @@
   </main>
 
 
-  <!-- Footer -->
-  <footer class="bg-white text-center text-gray-500 text-sm py-4">
-
+  <!-- FOOTER -->
+  <footer class="bg-white border-t text-center text-gray-500 text-sm py-5 mt-10">
     © 2026 Ayrton Almada. All rights reserved.
-
   </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    const sections = [
+      "about",
+      "interests",
+      "experience",
+      "publications",
+      "projects",
+      "awards",
+      "conferences",
+      "schools",
+      "education",
+      "contact"
+    ];
+
+
+    function toggleSection(sectionId) {
+
+      const content = document.getElementById(
+        "content-" + sectionId
+      );
+
+      const icon = document.getElementById(
+        "icon-" + sectionId
+      );
+
+      const isOpen = content.classList.contains("open");
+
+
+      // Close all sections
+      sections.forEach(function(id) {
+
+        const sectionContent = document.getElementById(
+          "content-" + id
+        );
+
+        const sectionIcon = document.getElementById(
+          "icon-" + id
+        );
+
+        sectionContent.classList.remove("open");
+        sectionIcon.classList.remove("rotate");
+
+      });
+
+
+      // Open selected section only if it was previously closed
+      if (!isOpen) {
+
+        content.classList.add("open");
+        icon.classList.add("rotate");
+
+        setTimeout(function() {
+
+          document.getElementById(sectionId).scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }, 250);
+
+      }
+
+    }
+
+
+    function openSection(sectionId) {
+
+      sections.forEach(function(id) {
+
+        const content = document.getElementById(
+          "content-" + id
+        );
+
+        const icon = document.getElementById(
+          "icon-" + id
+        );
+
+        content.classList.remove("open");
+        icon.classList.remove("rotate");
+
+      });
+
+
+      const selectedContent = document.getElementById(
+        "content-" + sectionId
+      );
+
+      const selectedIcon = document.getElementById(
+        "icon-" + sectionId
+      );
+
+      selectedContent.classList.add("open");
+      selectedIcon.classList.add("rotate");
+
+
+      setTimeout(function() {
+
+        document.getElementById(sectionId).scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      }, 200);
+
+    }
+
+  </script>
 
 </body>
 </html>
