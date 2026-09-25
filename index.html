@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,25 +5,276 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ayrton Almada – Academic Profile</title>
 
-  <link
-    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-    rel="stylesheet"
-  />
-
   <style>
-    :root {
-      --cobalt-1: #0047AB;
-      --cobalt-2: #003F98;
-      --cobalt-3: #003785;
-      --cobalt-4: #002F72;
-      --cobalt-5: #00275F;
-      --cobalt-6: #00204C;
-      --cobalt-7: #001839;
-      --cobalt-8: #001026;
+    /* Local layout utilities preserve the existing design
+       without requiring an external CSS download. */
 
-      /* Intermediate shades */
-      --cobalt-9: #00419F;
-      --cobalt-10: #002B68;
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      border: 0 solid #e5e7eb;
+    }
+
+    html {
+      line-height: 1.5;
+      -webkit-text-size-adjust: 100%;
+      tab-size: 4;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    h1, h2, h3, p, ul {
+      margin: 0;
+    }
+
+    h1, h2, h3 {
+      font-size: inherit;
+      font-weight: inherit;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      background: transparent;
+      margin: 0;
+    }
+
+    img,
+    svg {
+      display: block;
+      vertical-align: middle;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .font-sans {
+      font-family:
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    }
+
+    .font-semibold { font-weight: 600; }
+    .font-bold { font-weight: 700; }
+    .italic { font-style: italic; }
+
+    .text-sm {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+
+    .text-lg {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+
+    .text-xl {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+
+    .text-2xl {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
+    .leading-relaxed { line-height: 1.625; }
+    .text-left { text-align: left; }
+    .text-center { text-align: center; }
+
+    .text-gray-500 { color: #6b7280; }
+    .text-gray-600 { color: #4b5563; }
+    .text-gray-700 { color: #374151; }
+    .text-gray-800 { color: #1f2937; }
+
+    .bg-white { background-color: #fff; }
+    .bg-gray-50 { background-color: #f9fafb; }
+    .bg-gray-100 { background-color: #f3f4f6; }
+
+    .flex { display: flex; }
+    .flex-col { flex-direction: column; }
+    .flex-wrap { flex-wrap: wrap; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .justify-end { justify-content: flex-end; }
+
+    .grid { display: grid; }
+
+    .grid-cols-1 {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .inline-block { display: inline-block; }
+
+    .gap-4 { gap: 1rem; }
+    .gap-6 { gap: 1.5rem; }
+    .gap-x-4 { column-gap: 1rem; }
+    .gap-y-2 { row-gap: 0.5rem; }
+
+    .max-w-5xl { max-width: 64rem; }
+    .max-w-6xl { max-width: 72rem; }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .w-full { width: 100%; }
+    .w-16 { width: 4rem; }
+    .h-16 { height: 4rem; }
+    .w-6 { width: 1.5rem; }
+    .h-6 { height: 1.5rem; }
+    .object-cover { object-fit: cover; }
+
+    .p-4 { padding: 1rem; }
+    .p-5 { padding: 1.25rem; }
+
+    .px-4 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .px-6 {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .py-5 {
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+    }
+
+    .py-10 {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .pb-6 { padding-bottom: 1.5rem; }
+
+    .mb-0 { margin-bottom: 0; }
+    .mb-2 { margin-bottom: 0.5rem; }
+    .mb-3 { margin-bottom: 0.75rem; }
+
+    .mt-2 { margin-top: 0.5rem; }
+    .mt-3 { margin-top: 0.75rem; }
+    .mt-4 { margin-top: 1rem; }
+    .mt-10 { margin-top: 2.5rem; }
+
+    .ml-5 { margin-left: 1.25rem; }
+
+    .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+      margin-left: 1rem;
+    }
+
+    .space-y-1 > :not([hidden]) ~ :not([hidden]) {
+      margin-top: 0.25rem;
+    }
+
+    .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+      margin-top: 1rem;
+    }
+
+    .space-y-5 > :not([hidden]) ~ :not([hidden]) {
+      margin-top: 1.25rem;
+    }
+
+    .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+      margin-top: 1.5rem;
+    }
+
+    .space-y-8 > :not([hidden]) ~ :not([hidden]) {
+      margin-top: 2rem;
+    }
+
+    .border { border-width: 1px; }
+    .border-t { border-top-width: 1px; }
+
+    .rounded-lg { border-radius: 0.5rem; }
+    .rounded-full { border-radius: 9999px; }
+
+    .shadow-sm {
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .shadow-md {
+      box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .overflow-hidden { overflow: hidden; }
+    .sticky { position: sticky; }
+    .top-0 { top: 0; }
+    .z-50 { z-index: 50; }
+    .list-disc { list-style-type: disc; }
+
+    .hover\:underline:hover {
+      text-decoration: underline;
+    }
+
+    @media (min-width: 768px) {
+      .md\:flex-row {
+        flex-direction: row;
+      }
+
+      .md\:items-center {
+        align-items: center;
+      }
+
+      .md\:justify-between {
+        justify-content: space-between;
+      }
+
+      .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* CYAN BLUE THEME */
+
+    :root {
+      /*
+        Original palette:
+        #72c8dd, #43b5d2, #14a3c7, #1293b3, #10829f
+
+        Intermediate shades provide a gradual progression
+        across all ten sections.
+      */
+      --cyan-1: #72c8dd;
+      --cyan-2: #5abed8;
+      --cyan-3: #43b5d2;
+      --cyan-4: #2caccc;
+      --cyan-5: #14a3c7;
+      --cyan-6: #139bbd;
+      --cyan-7: #1293b3;
+      --cyan-8: #118bab;
+      --cyan-9: #10829f;
+      --cyan-10: #0e7691;
+
+      --header-offset: 140px;
     }
 
     html {
@@ -35,76 +285,114 @@
       background-color: #f3f4f6;
     }
 
+    [hidden] {
+      display: none !important;
+    }
+
     .site-header {
       border-top: 5px solid transparent;
       border-image: linear-gradient(
         90deg,
-        var(--cobalt-1) 0%,
-        var(--cobalt-1) 12.5%,
-        var(--cobalt-2) 12.5%,
-        var(--cobalt-2) 25%,
-        var(--cobalt-3) 25%,
-        var(--cobalt-3) 37.5%,
-        var(--cobalt-4) 37.5%,
-        var(--cobalt-4) 50%,
-        var(--cobalt-5) 50%,
-        var(--cobalt-5) 62.5%,
-        var(--cobalt-6) 62.5%,
-        var(--cobalt-6) 75%,
-        var(--cobalt-7) 75%,
-        var(--cobalt-7) 87.5%,
-        var(--cobalt-8) 87.5%,
-        var(--cobalt-8) 100%
+        var(--cyan-1) 0%,
+        var(--cyan-3) 25%,
+        var(--cyan-5) 50%,
+        var(--cyan-7) 75%,
+        var(--cyan-9) 100%
       ) 1;
     }
 
+    .header-layout {
+      gap: 1.5rem;
+    }
+
+    .profile-block {
+      min-width: 0;
+    }
+
+    .profile-block img {
+      flex-shrink: 0;
+    }
+
     .site-name {
-      color: var(--cobalt-1);
+      color: #0d718a;
+    }
+
+    .desktop-nav {
+      min-width: 0;
     }
 
     .nav-button {
-      color: var(--cobalt-1);
-      transition: color 0.2s ease;
+      color: var(--accent-ink, #0d718a);
+      border-bottom: 2px solid transparent;
+      border-radius: 2px;
+      padding: 0.25rem 0;
+      cursor: pointer;
+      transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
     }
 
     .nav-button:hover,
-    .nav-button:focus {
-      color: var(--cobalt-3);
+    .nav-button[aria-expanded="true"] {
+      border-bottom-color: var(--accent, var(--cyan-5));
     }
 
+    .nav-button:focus-visible,
+    .section-toggle:focus-visible,
+    .accent-link:focus-visible,
+    .accent-button:focus-visible {
+      outline: 2px solid #0d718a;
+      outline-offset: 4px;
+    }
+
+    main > section {
+      scroll-margin-top: var(--header-offset);
+    }
+
+    .section-heading {
+      margin: 0;
+    }
+
+    /*
+      Without JavaScript, all content remains readable.
+      JavaScript initializes the single-open-section accordion.
+    */
     .section-content {
-      max-height: 0;
+      height: auto;
       overflow: hidden;
-      opacity: 0;
+      opacity: 1;
       transition:
-        max-height 0.6s ease,
-        opacity 0.35s ease,
-        padding 0.4s ease;
+        height 360ms ease,
+        opacity 200ms ease;
     }
 
-    .section-content.open {
-      max-height: 10000px;
+    .accordion-ready .section-content {
+      height: 0;
+      opacity: 0;
+    }
+
+    .accordion-ready .section-content.open {
       opacity: 1;
     }
 
     .section-toggle {
+      gap: 1rem;
       cursor: pointer;
-      transition: background-color 0.25s ease;
+      transition: background-color 0.2s ease;
     }
 
     .section-toggle:hover {
-      background-color: #f9fafb;
+      background-color: #f0fafc;
     }
 
-    .section-title,
-    .section-icon,
-    .accent-link,
-    .accent-button {
-      color: var(--accent);
+    .section-title {
+      color: var(--accent-ink);
     }
 
     .section-icon {
-      transition: transform 0.35s ease;
+      color: var(--accent-ink);
+      flex-shrink: 0;
+      transition: transform 360ms ease;
     }
 
     .section-icon.rotate {
@@ -118,7 +406,9 @@
 
     .accent-link,
     .accent-button {
+      color: var(--accent-ink);
       font-weight: 600;
+      overflow-wrap: anywhere;
     }
 
     .accent-link:hover,
@@ -131,19 +421,94 @@
     }
 
     /*
-      Each section receives a different shade from the cobalt blue gradient.
-      The progression moves from brighter cobalt blue to deeper burgundy.
+      Bright cyan accents are paired with darker cyan text
+      for readability on white backgrounds.
+
+      Each navigation button shares its section's colors.
     */
-    #about        { --accent: var(--cobalt-1); }
-    #interests    { --accent: var(--cobalt-9); }
-    #experience   { --accent: var(--cobalt-2); }
-    #publications { --accent: var(--cobalt-3); }
-    #projects     { --accent: var(--cobalt-4); }
-    #awards       { --accent: var(--cobalt-5); }
-    #conferences  { --accent: var(--cobalt-6); }
-    #schools      { --accent: var(--cobalt-10); }
-    #education    { --accent: var(--cobalt-7); }
-    #contact      { --accent: var(--cobalt-8); }
+    #about,
+    .nav-button[data-section="about"] {
+      --accent: var(--cyan-1);
+      --accent-ink: #147b94;
+    }
+
+    #interests,
+    .nav-button[data-section="interests"] {
+      --accent: var(--cyan-2);
+      --accent-ink: #137890;
+    }
+
+    #experience,
+    .nav-button[data-section="experience"] {
+      --accent: var(--cyan-3);
+      --accent-ink: #12758d;
+    }
+
+    #publications,
+    .nav-button[data-section="publications"] {
+      --accent: var(--cyan-4);
+      --accent-ink: #11728a;
+    }
+
+    #projects,
+    .nav-button[data-section="projects"] {
+      --accent: var(--cyan-5);
+      --accent-ink: #106f87;
+    }
+
+    #awards,
+    .nav-button[data-section="awards"] {
+      --accent: var(--cyan-6);
+      --accent-ink: #106c83;
+    }
+
+    #conferences,
+    .nav-button[data-section="conferences"] {
+      --accent: var(--cyan-7);
+      --accent-ink: #0f6980;
+    }
+
+    #schools,
+    .nav-button[data-section="schools"] {
+      --accent: var(--cyan-8);
+      --accent-ink: #0e667c;
+    }
+
+    #education,
+    .nav-button[data-section="education"] {
+      --accent: var(--cyan-9);
+      --accent-ink: #0d6378;
+    }
+
+    #contact,
+    .nav-button[data-section="contact"] {
+      --accent: var(--cyan-10);
+      --accent-ink: #0c6075;
+    }
+
+    .experience-heading {
+      gap: 0.5rem 1.25rem;
+    }
+
+    .experience-heading h3 {
+      min-width: 0;
+    }
+
+    .experience-heading .experience-dates {
+      flex-shrink: 0;
+    }
+
+    .current-badge {
+      display: inline-block;
+      margin-top: 0.4rem;
+      padding: 0.15rem 0.55rem;
+      border: 1px solid var(--accent);
+      border-radius: 9999px;
+      background-color: #edf9fc;
+      color: var(--accent-ink);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
 
     .card-hover {
       transition:
@@ -156,9 +521,58 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     }
 
-    @media (max-width: 768px) {
+    @media (min-width: 768px) {
+      .profile-block {
+        flex: 1 1 45%;
+      }
+
       .desktop-nav {
-        display: none;
+        flex: 1 1 50%;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .header-layout {
+        gap: 0.75rem;
+      }
+
+      .desktop-nav {
+        justify-content: flex-start;
+      }
+
+      .nav-button {
+        font-size: 0.8125rem;
+      }
+
+      .section-toggle {
+        padding: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+        line-height: 1.4;
+      }
+
+      .timeline-item {
+        padding-left: 1rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .section-content,
+      .section-icon,
+      .section-toggle,
+      .nav-button,
+      .card-hover {
+        transition: none;
+      }
+
+      .card-hover:hover {
+        transform: none;
       }
     }
   </style>
@@ -170,10 +584,10 @@
   <header class="site-header bg-white shadow-md sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 py-5">
 
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+      <div class="header-layout flex flex-col md:flex-row md:items-center md:justify-between">
 
         <!-- Profile -->
-        <div class="flex items-center space-x-4 mb-4 md:mb-0">
+        <div class="profile-block flex items-center space-x-4">
           <img
             src="pic.jpg"
             alt="Ayrton Almada"
@@ -187,175 +601,252 @@
 
             <p class="text-sm text-gray-600">
               <strong>
-                Ph.D. Candidate in Applied Mathematics | Complex Systems & Energy Networks
+                Ph.D. Candidate in Applied Mathematics |
+                Complex Systems &amp; Energy Networks
               </strong>
             </p>
           </div>
         </div>
 
         <!-- Navigation -->
-        <nav class="desktop-nav flex flex-wrap justify-end gap-x-4 gap-y-2 text-sm">
+        <nav
+          aria-label="Main navigation"
+          class="desktop-nav flex flex-wrap justify-end gap-x-4 gap-y-2 text-sm"
+        >
+          <button
+            type="button"
+            onclick="openSection('about')"
+            data-section="about"
+            aria-controls="content-about"
+            aria-expanded="true"
+            class="nav-button font-semibold"
+          >About</button>
 
-          <button onclick="openSection('about')" class="nav-button font-semibold">
-            About
-          </button>
+          <button
+            type="button"
+            onclick="openSection('interests')"
+            data-section="interests"
+            aria-controls="content-interests"
+            aria-expanded="false"
+            class="nav-button font-semibold"
+          >Interests</button>
 
-          <button onclick="openSection('interests')" class="nav-button font-semibold">
-            Interests
-          </button>
+          <button
+            type="button"
+            onclick="openSection('experience')"
+            data-section="experience"
+            aria-controls="content-experience"
+            aria-expanded="false"
+            class="nav-button font-semibold"
+          >Experience</button>
 
-          <button onclick="openSection('experience')" class="nav-button font-semibold">
-            Experience
-          </button>
+          <button
+            type="button"
+            onclick="openSection('publications')"
+            data-section="publications"
+            aria-controls="content-publications"
+            aria-expanded="false"
+            class="nav-button font-semibold"
+          >Publications</button>
 
-          <button onclick="openSection('publications')" class="nav-button font-semibold">
-            Publications
-          </button>
+          <button
+            type="button"
+            onclick="openSection('projects')"
+            data-section="projects"
+            aria-controls="content-projects"
+            aria-expanded="false"
+            class="nav-button font-semibold"
+          >Projects</button>
 
-          <button onclick="openSection('projects')" class="nav-button font-semibold">
-            Projects
-          </button>
+          <button
+            type="button"
+            onclick="openSection('awards')"
+            data-section="awards"
+            aria-controls="content-awards"
+            aria-expanded="false"
+            class="nav-button font-semibold"
+          >Awards</button>
 
-          <button onclick="openSection('awards')" class="nav-button font-semibold">
-            Awards
-          </button>
+          <button
+            type="button"
+            onclick="openSection('conferences')"
+            data-section="conferences"
+            aria-controls="content-conferences"
+            aria-expanded="false"
+            class="nav-button font-semibold"
+          >Conferences</button>
 
-          <button onclick="openSection('conferences')" class="nav-button font-semibold">
-            Conferences
-          </button>
+          <button
+            type="button"
+            onclick="openSection('schools')"
+            data-section="schools"
+            aria-controls="content-schools"
+            aria-expanded="false"
+            class="nav-button font-semibold"
+          >Schools</button>
 
-          <button onclick="openSection('schools')" class="nav-button font-semibold">
-            Schools
-          </button>
+          <button
+            type="button"
+            onclick="openSection('education')"
+            data-section="education"
+            aria-controls="content-education"
+            aria-expanded="false"
+            class="nav-button font-semibold"
+          >Education</button>
 
-          <button onclick="openSection('education')" class="nav-button font-semibold">
-            Education
-          </button>
-
-          <button onclick="openSection('contact')" class="nav-button font-semibold">
-            Contact
-          </button>
-
+          <button
+            type="button"
+            onclick="openSection('contact')"
+            data-section="contact"
+            aria-controls="content-contact"
+            aria-expanded="false"
+            class="nav-button font-semibold"
+          >Contact</button>
         </nav>
+
       </div>
     </div>
   </header>
 
-
   <!-- MAIN CONTENT -->
   <main class="max-w-5xl mx-auto px-4 py-10 space-y-5">
 
+    <!-- ABOUT ME -->
+    <section id="about" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-<!-- ABOUT ME -->
-<section id="about" class="bg-white shadow-md rounded-lg overflow-hidden">
+      <h2 class="section-heading">
+        <button
+          type="button"
+          id="toggle-about"
+          class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+          onclick="toggleSection('about')"
+          aria-expanded="true"
+          aria-controls="content-about"
+        >
+          <span class="section-title text-2xl font-bold">About Me</span>
 
-  <button
-    class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
-    onclick="toggleSection('about')"
-  >
-    <h2 class="section-title text-2xl font-bold">
-      About Me
-    </h2>
+          <svg
+            id="icon-about"
+            class="section-icon rotate w-6 h-6"
+            aria-hidden="true"
+            focusable="false"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+      </h2>
 
-    <svg
-      id="icon-about"
-      class="section-icon rotate w-6 h-6"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M19 9l-7 7-7-7"
-      />
-    </svg>
-  </button>
+      <div
+        id="content-about"
+        class="section-content open"
+        role="region"
+        aria-labelledby="toggle-about"
+      >
+        <div class="px-6 pb-6 text-gray-700 leading-relaxed space-y-5">
 
-  <div id="content-about" class="section-content open">
-    <div class="px-6 pb-6 text-gray-700 leading-relaxed space-y-5">
+          <p class="timeline-item mb-0">
+            I am a Ph.D. candidate in Applied Mathematics at the University of
+            Arizona, advised by Dr.
+            <a
+              href="https://appliedmath.arizona.edu/person/michael-chertkov"
+              class="accent-link hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Michael Chertkov</a>
+            and Dr.
+            <a
+              href="https://www.math.arizona.edu/people/laurentpagnier"
+              class="accent-link hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Laurent Pagnier</a>.
+            My research lies at the intersection of mathematical modeling,
+            probability, stochastic processes, dynamical systems, and scientific
+            computing. I develop theoretical and computational methods for
+            analyzing complex dynamical and networked systems under uncertainty,
+            with a particular focus on modern energy infrastructures. My work
+            includes probabilistic risk assessment, rare-event analysis,
+            Monte Carlo and importance-sampling methods, surrogate and
+            reduced-order modeling, stability analysis, and large-scale simulation
+            of transmission-level power networks and coupled energy systems.
+          </p>
 
-      <p class="timeline-item mb-0">
-        I am a Ph.D. candidate in Applied Mathematics at the University of
-        Arizona, advised by Dr.
-        <a
-          href="https://appliedmath.arizona.edu/person/michael-chertkov"
-          class="accent-link hover:underline"
-          target="_blank"
-        >Michael Chertkov</a>
-        and Dr.
-        <a
-          href="https://www.math.arizona.edu/people/laurentpagnier"
-          class="accent-link hover:underline"
-          target="_blank"
-        >Laurent Pagnier</a>.
-        My research lies at the intersection of mathematical modeling,
-        probability, stochastic processes, dynamical systems, and scientific
-        computing. I develop theoretical and computational methods for
-        analyzing complex dynamical and networked systems under uncertainty,
-        with a particular focus on modern energy infrastructures. My work
-        includes probabilistic risk assessment, rare-event analysis,
-        Monte Carlo and importance-sampling methods, surrogate and
-        reduced-order modeling, stability analysis, and large-scale simulation
-        of transmission-level power networks and coupled energy systems.
-      </p>
+          <p class="timeline-item">
+            My research experience spans academic, national laboratory, and
+            international energy-system environments, including collaborative work
+            at <strong>Los Alamos National Laboratory</strong>. I am currently a
+            <strong>Research Aide Technical – PhD at Argonne National Laboratory</strong>
+            in Lemont, Illinois, with an appointment running from September 2026 to
+            March 2027. Within ESI Grid Reliability and Resilience, I work on
+            real-time dynamic-contingency assessment and scientific software for
+            fast screening of stability issues in large-scale power grids. I
+            develop Python- and Julia-based research software and scalable
+            computational workflows to translate mathematical ideas into practical
+            simulation, inference, and decision-support tools. More broadly, I am
+            interested in the intersection of applied mathematics, machine
+            learning, artificial intelligence, optimization, and complex systems.
+            I am particularly motivated by problems where rigorous mathematical
+            modeling and modern data-driven methods can be combined to better
+            understand, predict, and manage large-scale engineered systems.
+          </p>
 
-      <p class="timeline-item">
-        My research experience spans academic, national laboratory, and
-        international energy-system environments, including collaborative work
-        at <strong>Los Alamos National Laboratory</strong>. I develop
-        Python- and Julia-based research software and scalable computational
-        workflows to translate mathematical ideas into practical simulation,
-        inference, and decision-support tools. More broadly, I am interested
-        in the intersection of applied mathematics, machine learning,
-        artificial intelligence, optimization, and complex systems. I am
-        particularly motivated by problems where rigorous mathematical
-        modeling and modern data-driven methods can be combined to better
-        understand, predict, and manage large-scale engineered systems.
-      </p>
-
-    </div>
-  </div>
-
-</section>
+        </div>
+      </div>
+    </section>
 
     <!-- RESEARCH INTERESTS -->
     <section id="interests" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <button
-        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
-        onclick="toggleSection('interests')"
-      >
-        <h2 class="section-title text-2xl font-bold">
-          Research Interests
-        </h2>
-
-        <svg
-          id="icon-interests"
-          class="section-icon w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <h2 class="section-heading">
+        <button
+          type="button"
+          id="toggle-interests"
+          class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+          onclick="toggleSection('interests')"
+          aria-expanded="false"
+          aria-controls="content-interests"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
+          <span class="section-title text-2xl font-bold">Research Interests</span>
 
-      <div id="content-interests" class="section-content">
+          <svg
+            id="icon-interests"
+            class="section-icon w-6 h-6"
+            aria-hidden="true"
+            focusable="false"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+      </h2>
 
+      <div
+        id="content-interests"
+        class="section-content"
+        role="region"
+        aria-labelledby="toggle-interests"
+      >
         <div class="px-6 pb-6">
-
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
             <div class="p-4 bg-gray-50 rounded-lg border accent-card">
               <h3 class="font-semibold text-lg mb-2">
-                Applied Mathematics & Complex Systems
+                Applied Mathematics &amp; Complex Systems
               </h3>
               <p class="text-gray-600 text-sm">
                 Dynamical systems, stochastic processes, differential
@@ -365,9 +856,7 @@
             </div>
 
             <div class="p-4 bg-gray-50 rounded-lg border accent-card">
-              <h3 class="font-semibold text-lg mb-2">
-                Energy Systems
-              </h3>
+              <h3 class="font-semibold text-lg mb-2">Energy Systems</h3>
               <p class="text-gray-600 text-sm">
                 Power-grid dynamics, transient stability, resilience,
                 interdependent energy networks, contingency analysis, and
@@ -377,7 +866,7 @@
 
             <div class="p-4 bg-gray-50 rounded-lg border accent-card">
               <h3 class="font-semibold text-lg mb-2">
-                Probability & Uncertainty Quantification
+                Probability &amp; Uncertainty Quantification
               </h3>
               <p class="text-gray-600 text-sm">
                 Rare-event simulation, Monte Carlo methods, importance
@@ -388,7 +877,7 @@
 
             <div class="p-4 bg-gray-50 rounded-lg border accent-card">
               <h3 class="font-semibold text-lg mb-2">
-                Artificial Intelligence & Machine Learning
+                Artificial Intelligence &amp; Machine Learning
               </h3>
               <p class="text-gray-600 text-sm">
                 Machine learning, data-driven modeling, scientific machine
@@ -399,7 +888,7 @@
 
             <div class="p-4 bg-gray-50 rounded-lg border accent-card">
               <h3 class="font-semibold text-lg mb-2">
-                Optimization & Control
+                Optimization &amp; Control
               </h3>
               <p class="text-gray-600 text-sm">
                 Optimization, control theory, operator-theoretic methods, and
@@ -408,9 +897,7 @@
             </div>
 
             <div class="p-4 bg-gray-50 rounded-lg border accent-card">
-              <h3 class="font-semibold text-lg mb-2">
-                Scientific Computing
-              </h3>
+              <h3 class="font-semibold text-lg mb-2">Scientific Computing</h3>
               <p class="text-gray-600 text-sm">
                 Numerical methods, high-performance computing, parallel
                 algorithms, simulation-based modeling, and reproducible
@@ -419,48 +906,112 @@
             </div>
 
           </div>
-
         </div>
       </div>
-
     </section>
-
 
     <!-- RESEARCH EXPERIENCE -->
     <section id="experience" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <button
-        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
-        onclick="toggleSection('experience')"
-      >
-        <h2 class="section-title text-2xl font-bold">
-          Research Experience
-        </h2>
-
-        <svg
-          id="icon-experience"
-          class="section-icon w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <h2 class="section-heading">
+        <button
+          type="button"
+          id="toggle-experience"
+          class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+          onclick="toggleSection('experience')"
+          aria-expanded="false"
+          aria-controls="content-experience"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
+          <span class="section-title text-2xl font-bold">Research Experience</span>
 
-      <div id="content-experience" class="section-content">
+          <svg
+            id="icon-experience"
+            class="section-icon w-6 h-6"
+            aria-hidden="true"
+            focusable="false"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+      </h2>
 
+      <div
+        id="content-experience"
+        class="section-content"
+        role="region"
+        aria-labelledby="toggle-experience"
+      >
         <div class="px-6 pb-6 space-y-8">
 
+          <!-- Current internship: Argonne National Laboratory -->
+          <div class="timeline-item">
+
+            <div class="experience-heading flex flex-col md:flex-row md:justify-between">
+              <h3 class="font-semibold text-lg">
+                Research Aide Technical – PhD
+              </h3>
+
+              <span class="experience-dates text-sm text-gray-500">
+                <time datetime="2026-09">September 2026</time> –
+                <time datetime="2027-03">March 2027</time>
+              </span>
+            </div>
+
+            <p class="italic text-gray-600">
+              Argonne National Laboratory, Lemont, Illinois
+            </p>
+
+            <p class="text-sm text-gray-600">
+              ESI Grid Reliability and Resilience
+            </p>
+
+            <span class="current-badge">Current internship</span>
+
+            <ul class="list-disc ml-5 mt-3 text-gray-700 space-y-1">
+              <li>
+                Conduct research on real-time assessment of dynamic power-system
+                contingencies, with emphasis on fast screening of stability issues
+                in large-scale power grids.
+              </li>
+              <li>
+                Develop and improve computational methods for identifying
+                potentially critical dynamic contingencies under real-time
+                operational requirements.
+              </li>
+              <li>
+                Review existing approaches for dynamic contingency assessment and
+                investigate methodological improvements where needed.
+              </li>
+              <li>
+                Design and implement algorithms as scientific software for scalable
+                and computationally efficient grid-stability screening.
+              </li>
+              <li>
+                Perform computational analysis and validation of dynamic
+                contingency-screening methodologies across large-scale
+                power-system scenarios.
+              </li>
+              <li>
+                Collaborate with researchers in ESI Grid Reliability and Resilience
+                on power-system modeling, algorithm development, and scientific
+                software implementation.
+              </li>
+            </ul>
+
+          </div>
+
+          <!-- Los Alamos National Laboratory -->
           <div class="timeline-item">
 
             <div class="flex flex-col md:flex-row md:justify-between">
-
               <h3 class="font-semibold text-lg">
                 Computer Science Graduate Internship Program
               </h3>
@@ -469,7 +1020,6 @@
                 June 2023 – August 2023<br />
                 January 2025 – August 2025
               </span>
-
             </div>
 
             <p class="italic text-gray-600">
@@ -501,11 +1051,10 @@
 
           </div>
 
-
+          <!-- University of Arizona research -->
           <div class="timeline-item">
 
             <div class="flex flex-col md:flex-row md:justify-between">
-
               <h3 class="font-semibold text-lg">
                 Case Studies in Applied Mathematics and Data Science/Machine Learning
               </h3>
@@ -513,56 +1062,44 @@
               <span class="text-sm text-gray-500">
                 August 2023 – Present
               </span>
-
             </div>
 
-            <p class="italic text-gray-600">
-              University of Arizona
-            </p>
+            <p class="italic text-gray-600">University of Arizona</p>
 
             <ul class="list-disc ml-5 mt-3 text-gray-700 space-y-1">
-
               <li>
                 Develop mathematical and statistical models for analyzing
                 complex dynamical systems under uncertainty.
               </li>
-
               <li>
-                Apply probability, stochastic processes, differential
-                equations, linear algebra, numerical methods, and optimization
-                to large-scale quantitative problems.
+                Apply probability, stochastic processes, differential equations,
+                linear algebra, numerical methods, and optimization to
+                large-scale quantitative problems.
               </li>
-
               <li>
                 Develop Monte Carlo and importance-sampling methods for
-                estimating rare-event probabilities and quantifying system
-                risk.
+                estimating rare-event probabilities and quantifying system risk.
               </li>
-
               <li>
                 Design simulation-based methodologies for evaluating model
                 behavior across stochastic scenarios.
               </li>
-
               <li>
                 Develop surrogate and reduced-order models to accelerate
                 computationally intensive analyses.
               </li>
-
               <li>
                 Implement scalable computational algorithms in Python and Julia
                 for simulation, statistical analysis, and model evaluation.
               </li>
-
             </ul>
 
           </div>
 
-
+          <!-- University of Arizona research assistantship -->
           <div class="timeline-item">
 
             <div class="flex flex-col md:flex-row md:justify-between">
-
               <h3 class="font-semibold text-lg">
                 Research Assistant – Energy Systems
               </h3>
@@ -570,571 +1107,530 @@
               <span class="text-sm text-gray-500">
                 January 2024 – July 2024
               </span>
-
             </div>
 
-            <p class="italic text-gray-600">
-              University of Arizona
-            </p>
+            <p class="italic text-gray-600">University of Arizona</p>
 
             <ul class="list-disc ml-5 mt-3 text-gray-700 space-y-1">
-
               <li>
                 Developed numerical solvers and stochastic models for analyzing
                 complex networked systems under uncertainty.
               </li>
-
               <li>
                 Developed quantitative measures of system stress and damage.
               </li>
-
               <li>
                 Performed stochastic and ergodic analysis using Importance
-                Sampling, the Cross-Entropy Method, and
-                Kullback-Leibler-based sampling techniques.
+                Sampling, the Cross-Entropy Method, and Kullback-Leibler-based
+                sampling techniques.
               </li>
-
               <li>
                 Conducted sensitivity and uncertainty analyses to evaluate
                 robustness under different scenarios.
               </li>
-
             </ul>
 
           </div>
 
         </div>
       </div>
-
     </section>
-
 
     <!-- PUBLICATIONS -->
     <section id="publications" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <button
-        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
-        onclick="toggleSection('publications')"
-      >
-        <h2 class="section-title text-2xl font-bold">
-          Publications
-        </h2>
-
-        <svg
-          id="icon-publications"
-          class="section-icon w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <h2 class="section-heading">
+        <button
+          type="button"
+          id="toggle-publications"
+          class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+          onclick="toggleSection('publications')"
+          aria-expanded="false"
+          aria-controls="content-publications"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
+          <span class="section-title text-2xl font-bold">Publications</span>
 
-      <div id="content-publications" class="section-content">
+          <svg
+            id="icon-publications"
+            class="section-icon w-6 h-6"
+            aria-hidden="true"
+            focusable="false"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+      </h2>
 
+      <div
+        id="content-publications"
+        class="section-content"
+        role="region"
+        aria-labelledby="toggle-publications"
+      >
         <div class="px-6 pb-6">
-
           <ul class="space-y-6">
 
             <li class="timeline-item">
               <strong>
                 Análisis espectral de procesos de difusión cambiantes
-              </strong>
-              <br />
-
+              </strong><br />
               <em>
-                Universidad Nacional Autónoma de México, Facultad de Ciencias,
-                2022
-              </em>
-              <br />
-
+                Universidad Nacional Autónoma de México, Facultad de Ciencias, 2022
+              </em><br />
               <a
                 href="https://ru.dgb.unam.mx/items/8bb6d6f3-7db8-4a97-8ef7-40411e6536e7"
-                target="_blank"
                 class="accent-link hover:underline"
-              >
-                [PDF]
-              </a>
+                target="_blank"
+                rel="noopener noreferrer"
+              >[PDF]</a>
             </li>
-
 
             <li class="timeline-item">
               <strong>
                 Real-Time Stochastic Assessment of Dynamic N-1 Grid Contingencies
-              </strong>
-              <br />
-
+              </strong><br />
               <em>
                 Program in Applied Mathematics and Department of Mathematics,
                 University of Arizona, 2025
-              </em>
-              <br />
-
+              </em><br />
               <a
                 href="https://arxiv.org/pdf/2510.18007"
-                target="_blank"
                 class="accent-link hover:underline"
-              >
-                [PDF]
-              </a>
+                target="_blank"
+                rel="noopener noreferrer"
+              >[PDF]</a>
             </li>
-
 
             <li class="timeline-item">
               <strong>
                 Real-Time Dynamic N-1 Screening: Identifying High-Risk Lines
                 and Transformers After Common Faults
-              </strong>
-              <br />
-
+              </strong><br />
               <em>
                 Program in Applied Mathematics and Department of Mathematics,
                 University of Arizona, 2026
-              </em>
-              <br />
-
+              </em><br />
               <a
                 href="https://arxiv.org/pdf/2602.12293"
-                target="_blank"
                 class="accent-link hover:underline"
-              >
-                [PDF]
-              </a>
+                target="_blank"
+                rel="noopener noreferrer"
+              >[PDF]</a>
             </li>
-
 
             <li class="timeline-item">
               <strong>
-                Risk-Aware Co-Simulation of Integrated Power and Gas
-                Transients: Sampling Fuel-Switching Decisions During Supply
-                Disruptions
-              </strong>
-              <br />
-
+                Risk-Aware Co-Simulation of Integrated Power and Gas Transients:
+                Sampling Fuel-Switching Decisions During Supply Disruptions
+              </strong><br />
               <em>
                 Pipeline Simulation Interest Group Annual Meeting,
                 Amsterdam, Netherlands, 2026
-              </em>
-              <br />
-
+              </em><br />
               <a
                 href="https://onepetro.org/PSIGAM/proceedings-abstract/PSIG26/PSIG26/PSIG-2607/799790"
-                target="_blank"
                 class="accent-link hover:underline"
-              >
-                [Publication]
-              </a>
+                target="_blank"
+                rel="noopener noreferrer"
+              >[Publication]</a>
             </li>
 
           </ul>
-
         </div>
       </div>
-
     </section>
-
 
     <!-- RESEARCH PROJECTS -->
     <section id="projects" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <button
-        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
-        onclick="toggleSection('projects')"
-      >
-        <h2 class="section-title text-2xl font-bold">
-          Research Projects
-        </h2>
-
-        <svg
-          id="icon-projects"
-          class="section-icon w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <h2 class="section-heading">
+        <button
+          type="button"
+          id="toggle-projects"
+          class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+          onclick="toggleSection('projects')"
+          aria-expanded="false"
+          aria-controls="content-projects"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
+          <span class="section-title text-2xl font-bold">Research Projects</span>
 
-      <div id="content-projects" class="section-content">
+          <svg
+            id="icon-projects"
+            class="section-icon w-6 h-6"
+            aria-hidden="true"
+            focusable="false"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+      </h2>
 
+      <div
+        id="content-projects"
+        class="section-content"
+        role="region"
+        aria-labelledby="toggle-projects"
+      >
         <div class="px-6 pb-6 grid grid-cols-1 md:grid-cols-2 gap-6">
 
-
           <div class="p-5 bg-gray-50 rounded-lg border card-hover accent-card">
-
             <h3 class="font-semibold text-lg mb-3">
               Real-Time Stochastic Assessment of Dynamic N-1 Grid Contingencies
             </h3>
-
             <p class="text-sm text-gray-600 leading-relaxed">
-
-              Development of a computational framework for analyzing the
-              dynamic response of transmission networks under N-1 contingency
-              scenarios. The project combines stochastic modeling, transient
-              stability analysis, Monte Carlo simulation, importance sampling,
-              and analytical methods to evaluate system behavior and identify
-              vulnerable network components.
-
+              Development of a computational framework for analyzing the dynamic
+              response of transmission networks under N-1 contingency scenarios.
+              The project combines stochastic modeling, transient stability
+              analysis, Monte Carlo simulation, importance sampling, and analytical
+              methods to evaluate system behavior and identify vulnerable network
+              components.
             </p>
-
             <a
               href="https://github.com/AyrtonAlmada/PowerGridREserach"
-              target="_blank"
               class="inline-block mt-4 accent-button hover:underline font-semibold text-sm"
-            >
-              Project Repository →
-            </a>
-
+              target="_blank"
+              rel="noopener noreferrer"
+            >Project Repository →</a>
           </div>
 
-
           <div class="p-5 bg-gray-50 rounded-lg border card-hover accent-card">
-
             <h3 class="font-semibold text-lg mb-3">
               System-Agnostic Localization of Oscillations (SALO)
             </h3>
-
             <p class="text-sm text-gray-600 leading-relaxed">
-
-              Implementation of the SALO algorithm for identifying the origin
-              and frequency of forced oscillations in complex dynamical
-              networks. The framework combines spectral analysis, Fourier
-              transforms, maximum likelihood estimation, and optimization to
-              infer external forcing from observable time-series data.
-
+              Implementation of the SALO algorithm for identifying the origin and
+              frequency of forced oscillations in complex dynamical networks.
+              The framework combines spectral analysis, Fourier transforms,
+              maximum likelihood estimation, and optimization to infer external
+              forcing from observable time-series data.
             </p>
-
             <a
               href="https://github.com/AyrtonAlmada/SALO"
-              target="_blank"
               class="inline-block mt-4 accent-button hover:underline font-semibold text-sm"
-            >
-              Project Repository →
-            </a>
-
+              target="_blank"
+              rel="noopener noreferrer"
+            >Project Repository →</a>
           </div>
 
-
           <div class="p-5 bg-gray-50 rounded-lg border card-hover accent-card">
-
             <h3 class="font-semibold text-lg mb-3">
               N1Plus_SciML: Probabilistic Dynamic Grid Assessment
             </h3>
-
             <p class="text-sm text-gray-600 leading-relaxed">
-
               Development of computational methodologies for real-time
-              probabilistic assessment of transmission-level power systems
-              under faults and contingencies. The framework combines
-              importance sampling, rare-event analysis, stochastic simulation,
-              and dynamic stability indicators.
-
+              probabilistic assessment of transmission-level power systems under
+              faults and contingencies. The framework combines importance sampling,
+              rare-event analysis, stochastic simulation, and dynamic stability
+              indicators.
             </p>
-
             <a
               href="https://github.com/AyrtonAlmada/N1Plus_SciML"
-              target="_blank"
               class="inline-block mt-4 accent-button hover:underline font-semibold text-sm"
-            >
-              Project Repository →
-            </a>
-
-
+              target="_blank"
+              rel="noopener noreferrer"
+            >Project Repository →</a>
           </div>
 
         </div>
       </div>
-
     </section>
-
 
     <!-- AWARDS -->
     <section id="awards" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <button
-        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
-        onclick="toggleSection('awards')"
-      >
-        <h2 class="section-title text-2xl font-bold">
-          Awards & Scholarships
-        </h2>
-
-        <svg
-          id="icon-awards"
-          class="section-icon w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <h2 class="section-heading">
+        <button
+          type="button"
+          id="toggle-awards"
+          class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+          onclick="toggleSection('awards')"
+          aria-expanded="false"
+          aria-controls="content-awards"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
+          <span class="section-title text-2xl font-bold">
+            Awards &amp; Scholarships
+          </span>
 
-      <div id="content-awards" class="section-content">
+          <svg
+            id="icon-awards"
+            class="section-icon w-6 h-6"
+            aria-hidden="true"
+            focusable="false"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+      </h2>
 
+      <div
+        id="content-awards"
+        class="section-content"
+        role="region"
+        aria-labelledby="toggle-awards"
+      >
         <div class="px-6 pb-6">
-
           <ul class="space-y-4">
 
             <li class="timeline-item">
               <a
                 href="https://grad.arizona.edu/funding/fellowships/university-fellows-award"
-                target="_blank"
                 class="accent-link hover:underline"
-              >
-                University Fellows Award
-              </a>
+                target="_blank"
+                rel="noopener noreferrer"
+              >University Fellows Award</a>
               <p class="text-sm text-gray-600">
                 University of Arizona, 2022–2023
               </p>
             </li>
 
-
             <li class="timeline-item">
               <a
                 href="https://appliedmath.arizona.edu/"
-                target="_blank"
                 class="accent-link hover:underline"
-              >
-                Carter Travel Award
-              </a>
+                target="_blank"
+                rel="noopener noreferrer"
+              >Carter Travel Award</a>
               <p class="text-sm text-gray-600">
                 University of Arizona, 2025
               </p>
             </li>
 
-
             <li class="timeline-item">
               <a
                 href="https://appliedmath.arizona.edu/"
-                target="_blank"
                 class="accent-link hover:underline"
-              >
-                Carter Travel Award
-              </a>
+                target="_blank"
+                rel="noopener noreferrer"
+              >Carter Travel Award</a>
               <p class="text-sm text-gray-600">
                 University of Arizona, 2026
               </p>
             </li>
-
 
             <li class="timeline-item">
               <a
                 href="https://grad.arizona.edu/financial-resources/tuition-awards"
-                target="_blank"
                 class="accent-link hover:underline"
-              >
-                Thesis/Dissertation Tuition Scholarship Award
-              </a>
+                target="_blank"
+                rel="noopener noreferrer"
+              >Thesis/Dissertation Tuition Scholarship Award</a>
               <p class="text-sm text-gray-600">
                 University of Arizona, 2026
               </p>
             </li>
 
-
             <li class="timeline-item">
               <a
                 href="https://www.gob.mx/sre"
-                target="_blank"
                 class="accent-link hover:underline"
-              >
-                UNAM–Santander Study Abroad Scholarship
-              </a>
+                target="_blank"
+                rel="noopener noreferrer"
+              >UNAM–Santander Study Abroad Scholarship</a>
               <p class="text-sm text-gray-600">
                 Universidad Nacional Autónoma de México, 2020–2021
               </p>
             </li>
 
           </ul>
-
         </div>
       </div>
-
     </section>
-
 
     <!-- CONFERENCES -->
     <section id="conferences" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <button
-        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
-        onclick="toggleSection('conferences')"
-      >
-        <h2 class="section-title text-2xl font-bold">
-          Conferences & Professional Meetings
-        </h2>
-
-        <svg
-          id="icon-conferences"
-          class="section-icon w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <h2 class="section-heading">
+        <button
+          type="button"
+          id="toggle-conferences"
+          class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+          onclick="toggleSection('conferences')"
+          aria-expanded="false"
+          aria-controls="content-conferences"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
+          <span class="section-title text-2xl font-bold">
+            Conferences &amp; Professional Meetings
+          </span>
 
-      <div id="content-conferences" class="section-content">
+          <svg
+            id="icon-conferences"
+            class="section-icon w-6 h-6"
+            aria-hidden="true"
+            focusable="false"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+      </h2>
 
+      <div
+        id="content-conferences"
+        class="section-content"
+        role="region"
+        aria-labelledby="toggle-conferences"
+      >
         <div class="px-6 pb-6">
-
           <div class="space-y-5">
 
             <div class="timeline-item">
               <a
                 href="https://www.lanl.gov/projects/lanl-grid-science/"
-                target="_blank"
                 class="accent-link hover:underline"
-              >
-                2025 Grid Science Winter School and Conference
-              </a>
+                target="_blank"
+                rel="noopener noreferrer"
+              >2025 Grid Science Winter School and Conference</a>
               <p class="text-sm text-gray-600">
                 Los Alamos National Laboratory, Santa Fe, New Mexico
               </p>
             </div>
 
-
             <div class="timeline-item">
               <a
                 href="https://www.psig.org/"
-                target="_blank"
                 class="accent-link hover:underline"
-              >
-                Pipeline Simulation Interest Group Annual Meeting
-              </a>
+                target="_blank"
+                rel="noopener noreferrer"
+              >Pipeline Simulation Interest Group Annual Meeting</a>
               <p class="text-sm text-gray-600">
                 Amsterdam, Netherlands, 2026
               </p>
             </div>
 
-
             <div class="timeline-item">
               <a
                 href="https://www.nccr-automation.ch/"
-                target="_blank"
                 class="accent-link hover:underline"
-              >
-                Champéry Power Conference
-              </a>
+                target="_blank"
+                rel="noopener noreferrer"
+              >Champéry Power Conference</a>
               <p class="text-sm text-gray-600">
                 Champéry, Switzerland, 2026
               </p>
             </div>
 
-
             <div class="timeline-item">
               <a
                 href="https://www.nrel.gov/"
-                target="_blank"
                 class="accent-link hover:underline"
-              >
-                PowerUp Conference
-              </a>
+                target="_blank"
+                rel="noopener noreferrer"
+              >PowerUp Conference</a>
               <p class="text-sm text-gray-600">
                 Boulder, Colorado, 2026
               </p>
             </div>
 
-
             <div class="timeline-item">
               <a
                 href="https://web.cvent.com/event/d6dcb6c5-dee0-4a22-b782-873001f3fed4/summary"
-                target="_blank"
                 class="accent-link hover:underline"
-              >
-                2027 Grid Science Winter School and Conference
-              </a>
+                target="_blank"
+                rel="noopener noreferrer"
+              >2027 Grid Science Winter School and Conference</a>
               <p class="text-sm text-gray-600">
                 Los Alamos National Laboratory, Santa Fe, New Mexico
               </p>
             </div>
 
           </div>
-
         </div>
       </div>
-
     </section>
-
 
     <!-- SUMMER SCHOOLS -->
     <section id="schools" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <button
-        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
-        onclick="toggleSection('schools')"
-      >
-        <h2 class="section-title text-2xl font-bold">
-          Summer & Graduate Schools
-        </h2>
-
-        <svg
-          id="icon-schools"
-          class="section-icon w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <h2 class="section-heading">
+        <button
+          type="button"
+          id="toggle-schools"
+          class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+          onclick="toggleSection('schools')"
+          aria-expanded="false"
+          aria-controls="content-schools"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
+          <span class="section-title text-2xl font-bold">
+            Summer &amp; Graduate Schools
+          </span>
 
-      <div id="content-schools" class="section-content">
+          <svg
+            id="icon-schools"
+            class="section-icon w-6 h-6"
+            aria-hidden="true"
+            focusable="false"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+      </h2>
 
+      <div
+        id="content-schools"
+        class="section-content"
+        role="region"
+        aria-labelledby="toggle-schools"
+      >
         <div class="px-6 pb-6 space-y-5">
 
           <div class="timeline-item">
             <a
               href="https://groups.oist.jp/mathematical-and-theoretical-sciences"
-              target="_blank"
               class="accent-link hover:underline"
-            >
-              Analysis of Partial Differential Equations Summer Graduate School
-            </a>
-
+              target="_blank"
+              rel="noopener noreferrer"
+            >Analysis of Partial Differential Equations Summer Graduate School</a>
             <p class="text-sm text-gray-600">
               Okinawa Institute of Science and Technology, Japan, 2024
             </p>
           </div>
 
-
           <div class="timeline-item">
             <a
               href="https://research.ibm.com/labs/yorktown-heights"
-              target="_blank"
               class="accent-link hover:underline"
-            >
-              Dynamical Systems for Machine Learning and AI Summer Graduate School
-            </a>
-
+              target="_blank"
+              rel="noopener noreferrer"
+            >Dynamical Systems for Machine Learning and AI Summer Graduate School</a>
             <p class="text-sm text-gray-600">
               IBM Research, Yorktown Heights, New York, 2026
             </p>
@@ -1142,51 +1638,56 @@
 
         </div>
       </div>
-
     </section>
-
 
     <!-- EDUCATION -->
     <section id="education" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <button
-        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
-        onclick="toggleSection('education')"
-      >
-        <h2 class="section-title text-2xl font-bold">
-          Education
-        </h2>
-
-        <svg
-          id="icon-education"
-          class="section-icon w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <h2 class="section-heading">
+        <button
+          type="button"
+          id="toggle-education"
+          class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+          onclick="toggleSection('education')"
+          aria-expanded="false"
+          aria-controls="content-education"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
+          <span class="section-title text-2xl font-bold">Education</span>
 
-      <div id="content-education" class="section-content">
+          <svg
+            id="icon-education"
+            class="section-icon w-6 h-6"
+            aria-hidden="true"
+            focusable="false"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+      </h2>
 
+      <div
+        id="content-education"
+        class="section-content"
+        role="region"
+        aria-labelledby="toggle-education"
+      >
         <div class="px-6 pb-6 space-y-8">
-
 
           <div class="timeline-item">
 
             <div class="flex flex-col md:flex-row md:justify-between">
-
               <div>
                 <h3 class="font-semibold text-lg">
                   Ph.D. in Applied Mathematics
                 </h3>
-
                 <p class="text-gray-600">
                   Program in Applied Mathematics, University of Arizona
                 </p>
@@ -1195,37 +1696,30 @@
               <span class="text-sm text-gray-500">
                 August 2022 – May 2027 (Expected)
               </span>
-
             </div>
 
             <div class="mt-3 text-gray-700">
-
               <p>
                 <strong>Relevant Coursework:</strong>
                 Methods for Applied Mathematics, Theoretical Foundations of
                 Applied Mathematics, Algorithms
               </p>
-
               <p class="mt-2">
                 Research focuses on stochastic modeling, dynamical systems,
                 uncertainty quantification, computational mathematics, and
                 complex energy networks.
               </p>
-
             </div>
 
           </div>
 
-
           <div class="timeline-item">
 
             <div class="flex flex-col md:flex-row md:justify-between">
-
               <div>
                 <h3 class="font-semibold text-lg">
                   B.S. in Applied Mathematics
                 </h3>
-
                 <p class="text-gray-600">
                   School of Sciences, Universidad Nacional Autónoma de México
                 </p>
@@ -1234,18 +1728,15 @@
               <span class="text-sm text-gray-500">
                 August 2016 – January 2021
               </span>
-
             </div>
 
             <div class="mt-3 text-gray-700">
-
               <p>
                 <strong>Relevant Coursework:</strong>
                 Applied Mathematics Analysis, Statistics I–III, Stochastic
                 Processes I–II, Numerical Optimization, Multivariate Analysis,
                 Stochastic Simulation, and Partial Differential Equations.
               </p>
-
               <p class="mt-2">
                 <strong>Thesis:</strong>
                 <em>
@@ -1253,46 +1744,53 @@
                   their Applications
                 </em>
               </p>
-
             </div>
 
           </div>
 
         </div>
       </div>
-
     </section>
-
 
     <!-- CONTACT -->
     <section id="contact" class="bg-white shadow-md rounded-lg overflow-hidden">
 
-      <button
-        class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
-        onclick="toggleSection('contact')"
-      >
-        <h2 class="section-title text-2xl font-bold">
-          Contact
-        </h2>
-
-        <svg
-          id="icon-contact"
-          class="section-icon w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <h2 class="section-heading">
+        <button
+          type="button"
+          id="toggle-contact"
+          class="section-toggle w-full flex justify-between items-center px-6 py-5 text-left"
+          onclick="toggleSection('contact')"
+          aria-expanded="false"
+          aria-controls="content-contact"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
+          <span class="section-title text-2xl font-bold">Contact</span>
 
-      <div id="content-contact" class="section-content">
+          <svg
+            id="icon-contact"
+            class="section-icon w-6 h-6"
+            aria-hidden="true"
+            focusable="false"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+      </h2>
 
+      <div
+        id="content-contact"
+        class="section-content"
+        role="region"
+        aria-labelledby="toggle-contact"
+      >
         <div class="px-6 pb-6 space-y-4">
 
           <p class="timeline-item">
@@ -1300,75 +1798,65 @@
             <a
               href="mailto:p.ayrtonalmada@gmail.com"
               class="accent-link hover:underline"
-            >
-              p.ayrtonalmada@gmail.com
-            </a>
+            >p.ayrtonalmada@gmail.com</a>
           </p>
-
 
           <p class="timeline-item">
             <strong>LinkedIn:</strong>
             <a
               href="https://www.linkedin.com/in/ayrton-almada-309b1a125/"
-              target="_blank"
               class="accent-link hover:underline"
-            >
-              Ayrton Almada
-            </a>
+              target="_blank"
+              rel="noopener noreferrer"
+            >Ayrton Almada</a>
           </p>
-
 
           <p class="timeline-item">
             <strong>GitHub:</strong>
             <a
               href="https://github.com/AyrtonAlmada"
-              target="_blank"
               class="accent-link hover:underline"
-            >
-              AyrtonAlmada
-            </a>
+              target="_blank"
+              rel="noopener noreferrer"
+            >AyrtonAlmada</a>
           </p>
-
 
           <p class="timeline-item">
             <strong>Resume:</strong>
             <a
               href="https://docs.google.com/document/d/1gQSbh1MNrF_sEicRwQjHPcjKSw4a832E/edit"
-              target="_blank"
               class="accent-link hover:underline"
-            >
-              Ayrton Almada Resume
-            </a>
+              target="_blank"
+              rel="noopener noreferrer"
+            >Ayrton Almada Resume</a>
           </p>
 
           <p class="timeline-item">
             <strong>Google Scholar:</strong>
             <a
-              href="https://scholar.google.com.mx/citations?user=vp5mN2gAAAAJ&hl=en&oi=ao"
-              target="_blank"
+              href="https://scholar.google.com.mx/citations?user=vp5mN2gAAAAJ&amp;hl=en&amp;oi=ao"
               class="accent-link hover:underline"
-            >
-              Profile
-            </a>
+              target="_blank"
+              rel="noopener noreferrer"
+            >Profile</a>
           </p>
 
         </div>
       </div>
-
     </section>
 
   </main>
 
-
   <!-- FOOTER -->
-  <footer class="bg-white border-t text-center text-gray-500 text-sm py-5 mt-10" style="border-top-color: var(--cobalt-4);">
+  <footer
+    class="bg-white border-t text-center text-gray-500 text-sm py-5 mt-10"
+    style="border-top-color: var(--cyan-5);"
+  >
     © 2026 Ayrton Almada. All rights reserved.
   </footer>
 
-
   <!-- JAVASCRIPT -->
   <script>
-
     const sections = [
       "about",
       "interests",
@@ -1382,98 +1870,208 @@
       "contact"
     ];
 
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
 
-    function toggleSection(sectionId) {
+    const header = document.querySelector(".site-header");
+    const panels = new Map();
+    const animationDuration = 360;
 
-      const content = document.getElementById(
-        "content-" + sectionId
+    let scrollTimer;
+
+    function updateHeaderOffset() {
+      document.documentElement.style.setProperty(
+        "--header-offset",
+        `${header.getBoundingClientRect().height + 16}px`
       );
+    }
 
-      const icon = document.getElementById(
-        "icon-" + sectionId
-      );
+    function finishTransition(item) {
+      window.clearTimeout(item.finishTimer);
 
-      const isOpen = content.classList.contains("open");
+      const isOpen = item.content.classList.contains("open");
 
+      item.content.style.height = isOpen ? "auto" : "0px";
+      item.content.hidden = !isOpen;
+    }
 
-      // Close all sections
-      sections.forEach(function(id) {
+    function setSectionState(id, isOpen, animate = true) {
+      const item = panels.get(id);
 
-        const sectionContent = document.getElementById(
-          "content-" + id
-        );
+      if (!item) return;
 
-        const sectionIcon = document.getElementById(
-          "icon-" + id
-        );
+      const wasOpen = item.content.classList.contains("open");
 
-        sectionContent.classList.remove("open");
-        sectionIcon.classList.remove("rotate");
+      item.button.setAttribute("aria-expanded", String(isOpen));
+      item.nav.setAttribute("aria-expanded", String(isOpen));
+      item.content.setAttribute("aria-hidden", String(!isOpen));
 
-      });
+      // Prevent keyboard focus from entering collapsed content.
+      item.content.inert = !isOpen;
 
+      item.icon.classList.toggle("rotate", isOpen);
 
-      // Open selected section only if it was previously closed
-      if (!isOpen) {
-
-        content.classList.add("open");
-        icon.classList.add("rotate");
-
-        setTimeout(function() {
-
-          document.getElementById(sectionId).scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-
-        }, 250);
-
+      if (isOpen) {
+        item.nav.setAttribute("aria-current", "location");
+      } else {
+        item.nav.removeAttribute("aria-current");
       }
 
+      if (animate && wasOpen === isOpen) return;
+
+      window.clearTimeout(item.finishTimer);
+
+      if (!animate || reducedMotion.matches) {
+        item.content.classList.toggle("open", isOpen);
+        finishTransition(item);
+        return;
+      }
+
+      /*
+        Animate between measured heights.
+        This avoids the delay caused by an oversized max-height.
+      */
+      const startHeight = item.content.hidden
+        ? 0
+        : item.content.getBoundingClientRect().height;
+
+      item.content.hidden = false;
+      item.content.style.height = `${startHeight}px`;
+
+      // Commit the starting height before setting the target.
+      void item.content.offsetHeight;
+
+      item.content.classList.toggle("open", isOpen);
+
+      item.content.style.height = isOpen
+        ? `${item.content.scrollHeight}px`
+        : "0px";
+
+      // Fallback in case transitionend is not emitted.
+      item.finishTimer = window.setTimeout(
+        () => finishTransition(item),
+        animationDuration + 40
+      );
     }
 
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
 
-    function openSection(sectionId) {
+      if (!section) return;
 
-      sections.forEach(function(id) {
+      updateHeaderOffset();
 
-        const content = document.getElementById(
-          "content-" + id
-        );
+      const top =
+        section.getBoundingClientRect().top +
+        window.scrollY -
+        header.getBoundingClientRect().height -
+        16;
 
-        const icon = document.getElementById(
-          "icon-" + id
-        );
+      window.scrollTo({
+        top: Math.max(0, top),
+        behavior: reducedMotion.matches ? "auto" : "smooth"
+      });
+    }
 
-        content.classList.remove("open");
-        icon.classList.remove("rotate");
+    /*
+      Top navigation always opens its section.
+      Selecting the same navigation item does not collapse it.
+    */
+    function openSection(id, shouldScroll = true) {
+      if (!panels.has(id)) return;
 
+      window.clearTimeout(scrollTimer);
+
+      sections.forEach(sectionId => {
+        setSectionState(sectionId, sectionId === id);
       });
 
-
-      const selectedContent = document.getElementById(
-        "content-" + sectionId
-      );
-
-      const selectedIcon = document.getElementById(
-        "icon-" + sectionId
-      );
-
-      selectedContent.classList.add("open");
-      selectedIcon.classList.add("rotate");
-
-
-      setTimeout(function() {
-
-        document.getElementById(sectionId).scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-
-      }, 200);
-
+      if (shouldScroll) {
+        /*
+          Wait until the previous panel finishes collapsing so
+          the target's final position is known before scrolling.
+        */
+        scrollTimer = window.setTimeout(
+          () => scrollToSection(id),
+          reducedMotion.matches ? 0 : animationDuration + 50
+        );
+      }
     }
 
+    /*
+      Section headings toggle their own panels.
+      Opening one closes all the others.
+    */
+    function toggleSection(id) {
+      const item = panels.get(id);
+
+      if (!item) return;
+
+      window.clearTimeout(scrollTimer);
+
+      if (item.content.classList.contains("open")) {
+        setSectionState(id, false);
+      } else {
+        openSection(id);
+      }
+    }
+
+    sections.forEach(id => {
+      const item = {
+        content: document.getElementById(`content-${id}`),
+        button: document.getElementById(`toggle-${id}`),
+        icon: document.getElementById(`icon-${id}`),
+        nav: document.querySelector(
+          `.nav-button[data-section="${id}"]`
+        )
+      };
+
+      panels.set(id, item);
+
+      item.content.addEventListener("transitionend", event => {
+        if (
+          event.target === item.content &&
+          event.propertyName === "height"
+        ) {
+          finishTransition(item);
+        }
+      });
+    });
+
+    // Initial state: About Me open; every other section closed.
+    document.documentElement.classList.add("accordion-ready");
+
+    sections.forEach(id => {
+      setSectionState(id, id === "about", false);
+    });
+
+    updateHeaderOffset();
+
+    // Keep scroll offsets accurate when the header wraps or resizes.
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(updateHeaderOffset).observe(header);
+    }
+
+    window.addEventListener("resize", updateHeaderOffset);
+
+    /*
+      Direct section links are supported, for example:
+      index.html#experience
+    */
+    function openHashSection() {
+      const id = window.location.hash.slice(1);
+
+      if (panels.has(id)) {
+        openSection(id);
+      }
+    }
+
+    window.addEventListener("hashchange", openHashSection);
+
+    if (window.location.hash) {
+      openHashSection();
+    }
   </script>
 
 </body>
